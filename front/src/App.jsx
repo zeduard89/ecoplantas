@@ -1,11 +1,11 @@
-
+import Ejemplo2doToolkit from './components/Ejemplo2doToolkit';
 import './App.css'
 
 function App() {
 
   return (
     <div className="App">
-      <h1>Ejemplo</h1>
+      <Ejemplo2doToolkit/>
     </div>
   )
 }
