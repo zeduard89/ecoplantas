@@ -20,7 +20,9 @@ function App() {
       <Router>
         <NavBar onScroll={handleScroll}/>
           <Routes>
+            <Route path="/" element={<Home />} />
             {/*<Route path="/" element={}/>*/}
+            <Route path="*" element={<NotFound />} />  {/* Ruta de captura para 404 */}
           </Routes>
       </Router>
     </div>
