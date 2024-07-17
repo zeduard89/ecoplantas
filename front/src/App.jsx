@@ -1,11 +1,28 @@
-import Ejemplo2doToolkit from './components/Ejemplo2doToolkit';
-import './App.css'
+import NavBar from './components/NavBar/NavBar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'tailwindcss/tailwind.css';
 
 function App() {
 
+  function handleScroll (sectionId) { // Agrega el tipo explícito 'string' para sectionId
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const offset = 300;
+      window.scrollTo({
+        top: section.offsetTop + offset,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
-    <div className="App">
-      <Ejemplo2doToolkit/>
+    <div className="flex flex-col h-screen w-full">
+      <Router>
+        <NavBar onScroll={handleScroll}/>
+          <Routes>
+            {/*<Route path="/" element={}/>*/}
+          </Routes>
+      </Router>
     </div>
   )
 }
