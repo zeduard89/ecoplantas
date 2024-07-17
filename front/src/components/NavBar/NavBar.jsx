@@ -53,7 +53,7 @@ function NavBar({ onScroll }) {
   }, [isMenuOpen]);
 
   return (
-    <nav className='opacity-95 animate-slideDown bg-navBarColor w-full fixed flex flex-row justify-between h-[3.3rem]'>
+    <nav className=' animate-slideDown bg-navBarColor/[.5] w-full fixed flex flex-row justify-between h-[3.3rem] top-0 z-10'>
       <button
         ref={buttonRef}
         data-collapse-toggle="navbar-hamburger"
@@ -89,7 +89,7 @@ function NavBar({ onScroll }) {
       >
         <a className='hidden sm:flex items-center' href="https://www.google.com/webhp?hl=es-419&sa=X&ved=0ahUKEwiskqnWpa2HAxXBq5UCHeZyB_MQPAgIhttps://www.google.com/webhp?hl=es-419&sa=X&ved=0ahUKEwiskqnWpa2HAxXBq5UCHeZyB_MQPAgI">
           <img className="h-[2.2rem] w-[2.2rem] m-[1rem] rounded-lg" src={hojaCiclo} alt="cv" />
-          <h1 className='hidden md:block'>Eco Plantas</h1>
+          <h1 className='hidden md:block text-2xl'>Eco Plantas</h1>
         </a>
 
         <ul className="bg-slate-800 divide-gray-100 sm:bg-transparent flex flex-col sm:flex-row text-center justify-center rounded-md border-2 sm:border-none border-slate-300">
