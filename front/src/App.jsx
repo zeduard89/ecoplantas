@@ -1,4 +1,6 @@
 import NavBar from './components/NavBar/NavBar';
+import Home from './components/Home/Home'
+import NotFound from './components/Error 404/NotFound'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'tailwindcss/tailwind.css';
 
