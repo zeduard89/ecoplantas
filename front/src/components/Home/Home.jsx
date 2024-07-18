@@ -1,7 +1,6 @@
 import React from 'react'
 import Carrousel from './Carrousel';
 import Card from '../Card/Card';
-import Footer from '../Footer/Footer';
 import  {banner2}  from '../Utils/Cloudinary/Cloudinary';
 
 
@@ -65,9 +64,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <Footer/>
 
     </div>
   )

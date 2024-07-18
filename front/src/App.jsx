@@ -4,6 +4,7 @@ import NotFound from './components/Error 404/NotFound'
 import Historia from './components/Historia/Historia'
 import Catalogo from './components/Catalogo/Catalogo'
 import Contacto from './components/Contacto/Contacto'
+import Footer from './components/Footer/Footer';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 //Tailwind
@@ -35,9 +36,10 @@ function App() {
             <Route path="/historia" element={<Historia/>} />
             <Route path="/catalogo" element={<Catalogo/>} />
             <Route path="/contacto" element={<Contacto/>} />
-
             <Route path="*" element={<NotFound />} />  {/* Ruta de captura para 404 */}
           </Routes>
+
+          <Footer/>
 
       </Router>
     </div>
