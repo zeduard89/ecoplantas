@@ -23,8 +23,12 @@ const Home = () => {
         <div className='p-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-center'>
           <div className="col-span-1">
             <h1 className=" mb-8 text-3xl xl:text-5xl	font-bold	">ALQUILER DE FLORES Y PLANTAS PARA EVENTOS</h1>
-            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic rerum alias illo ad necessitatibus, perferendis pariatur labore minus sed aspernatur mollitia, nisi, dolores veniam ullam vel dolor voluptate consequuntur nihil!</h3>
-            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat facilis nesciunt ullam obcaecati recusandae dolore adipisci quidem a ab fuga numquam, illum repellat pariatur cupiditate blanditiis asperiores reprehenderit. Placeat, doloremque.</h3>
+            <h3>
+              En Eco Plantas, nos especializamos en proporcionar una experiencia única a través del alquiler de flores y plantas para todo tipo de eventos. Desde bodas elegantes hasta celebraciones corporativas, nuestras decoraciones verdes añadirán un toque fresco y vibrante a tu ocasión especial.
+            </h3>
+            <h3>
+              Nuestro compromiso con la calidad y la atención al detalle asegura que cada planta y arreglo floral esté cuidadosamente seleccionado para realzar la estética de tu evento. Permítenos transformar tu espacio en un entorno mágico y lleno de vida.
+            </h3>
           </div>
           <div className="col-span-1  ">
             <Card image={banner2}/>
