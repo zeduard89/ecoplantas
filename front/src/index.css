@@ -4,7 +4,6 @@
 
 :root {
   font-family: 'MainFont';
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #D9D4C9;
@@ -15,6 +14,8 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+
 
 .swiper {
   width: 100%;

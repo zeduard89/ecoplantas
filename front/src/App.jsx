@@ -20,14 +20,18 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col h-screen w-full">
+    <div className="z-50 flex flex-col h-screen w-full">
       <Router>
-        <NavBar onScroll={handleScroll}/>
+        <div className="top-0 left-0 right-0 z-50">
+          <NavBar  onScroll={handleScroll}/>
+        </div>
+          
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home/>} />
             {/*<Route path="/" element={}/>*/}
             <Route path="*" element={<NotFound />} />  {/* Ruta de captura para 404 */}
           </Routes>
+
       </Router>
     </div>
   )

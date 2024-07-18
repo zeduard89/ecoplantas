@@ -53,7 +53,7 @@ function NavBar({ onScroll }) {
   }, [isMenuOpen]);
 
   return (
-    <nav className=' animate-slideDown bg-navBarColor/[.5] w-full fixed flex flex-row justify-between h-[3.3rem] top-0 z-10'>
+    <nav className='animate-slideDown bg-navBarColor/[.5] w-full fixed flex flex-row justify-between h-[3.3rem] '>
       <button
         ref={buttonRef}
         data-collapse-toggle="navbar-hamburger"

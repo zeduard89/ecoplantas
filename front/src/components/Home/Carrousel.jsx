@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Cloudinary } from '@cloudinary/url-gen';
 import { AdvancedImage } from '@cloudinary/react';
+import { banner1, banner2, banner3, banner4 } from '../Utils/Cloudinary/Cloudinary';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -15,12 +15,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 
 const Carrousel = () => {
-    const cld = new Cloudinary({ cloud: { cloudName: 'dmcpjkhou' } });
-
-    const img1 = cld.image('Ejemplo_Banner_1_owuhez');
-    const img2 = cld.image('Ejemplo_Banner_2_rxffsg');
-    const img3 = cld.image('Ejemplo_Banner_4_aitj4p');
-    const img4 = cld.image('Ejemplo_Banner_3_eevk4q');
+   
 
 
     const progressCircle = useRef(null);
@@ -29,6 +24,7 @@ const Carrousel = () => {
       progressCircle.current.style.setProperty('--progress', 1 - progress);
       progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
     };
+
 
   return (
     <>
@@ -41,17 +37,17 @@ const Carrousel = () => {
           disableOnInteraction: false,
         }}
         pagination={{
-          clickable: true,
+          clickable: false,
         }}
-        navigation={true}
+        navigation={false}
         modules={[Autoplay, Pagination, Navigation]}
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper"
       >
-        <SwiperSlide><AdvancedImage cldImg={img1} /></SwiperSlide>
-        <SwiperSlide><AdvancedImage cldImg={img2} /></SwiperSlide>
-        <SwiperSlide><AdvancedImage cldImg={img3} /></SwiperSlide>
-        <SwiperSlide><AdvancedImage cldImg={img4} /></SwiperSlide>
+        <SwiperSlide><AdvancedImage cldImg={banner1} /></SwiperSlide>
+        <SwiperSlide><AdvancedImage cldImg={banner2} /></SwiperSlide>
+        <SwiperSlide><AdvancedImage cldImg={banner3} /></SwiperSlide>
+        <SwiperSlide><AdvancedImage cldImg={banner4} /></SwiperSlide>
         
         <div className="autoplay-progress" slot="container-end">
           <svg viewBox="0 0 48 48" ref={progressCircle}>
