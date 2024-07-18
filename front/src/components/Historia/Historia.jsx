@@ -40,7 +40,7 @@ const Historia = () => {
           effect={'cards'}
           grabCursor={true}
           modules={[EffectCards]}
-          className="mySwiper"
+          className="card-swiper"
           >
             <SwiperSlide><AdvancedImage cldImg={banner1} /></SwiperSlide>
             <SwiperSlide><AdvancedImage cldImg={banner2} /></SwiperSlide>
