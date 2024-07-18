@@ -34,7 +34,7 @@ const Home = () => {
       </div>
 
       {/* Services */}
-      <div className="m-[3rem] text-center flex flex-col items-center">
+      <div id="servicios" className= "m-[3rem] text-center flex flex-col items-center">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-1 items-start justify-center">
           <div className="col-span-1 flex flex-col items-center">
             <Card image={banner2} />

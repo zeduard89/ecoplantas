@@ -7,7 +7,7 @@ import { banner1, banner2, banner3, banner4 } from '../Utils/Cloudinary/Cloudina
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import '../../index.css';
+import './carrousel.css';
 
 
 // import required modules

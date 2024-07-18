@@ -1,8 +1,11 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import hojaCiclo from "../Utils/NavBarPics/hojasCiclo.png";
 
 function NavBar({ onScroll }) {
+  const navigate = useNavigate();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const menuRef = useRef(null);
@@ -53,7 +56,7 @@ function NavBar({ onScroll }) {
   }, [isMenuOpen]);
 
   return (
-    <nav className='animate-slideDown bg-navBarColor/[.5] w-full fixed flex flex-row justify-between h-[3.3rem] '>
+    <nav id="inicio" className='animate-slideDown bg-navBarColor/[.5] w-full fixed flex flex-row justify-between h-[3.3rem] '>
       <button
         ref={buttonRef}
         data-collapse-toggle="navbar-hamburger"
@@ -98,7 +101,8 @@ function NavBar({ onScroll }) {
               className='btnNav text-[1rem] sm:text-lg lg:text-xl sm:w-30 w-24 h-8 sm:hover:text-blue-700'
               onClick={() => {
                 closeMenu(); // Primero, llama a la función closeMenu
-                onScroll('aboutMe'); // Luego, llama a la función onScroll con el parámetro 'about-me'
+                navigate('/');
+                onScroll('inicio'); // Luego, llama a la función onScroll con el parámetro 'about-me'
               }}
             >
               Inicio
@@ -109,7 +113,8 @@ function NavBar({ onScroll }) {
               className='btnNav text-white text-[1rem] sm:text-lg lg:text-xl sm:w-30 w-24 h-8 sm:hover:text-blue-700'
               onClick={() => {
                 closeMenu(); // Primero, llama a la función closeMenu
-                onScroll('projects'); // Luego, llama a la función onScroll con el parámetro 'projects'
+                navigate('/');
+                onScroll('servicios'); // Luego, llama a la función onScroll con el parámetro 'projects'
               }}
             >
               Servicios
@@ -120,7 +125,7 @@ function NavBar({ onScroll }) {
               className='btnNav text-white text-[1rem] sm:text-lg lg:text-xl sm:w-40 w-24 h-8 sm:hover:text-blue-700'
               onClick={() => {
                 closeMenu(); // Primero, llama a la función closeMenu
-                onScroll('skills'); // Luego, llama a la función onScroll con el parámetro 'skills'
+                navigate('/historia'); 
               }}
             >
               Quiénes Somos
@@ -131,8 +136,7 @@ function NavBar({ onScroll }) {
               className='btnNav text-white text-[1rem] sm:text-lg lg:text-xl sm:w-30 w-24 h-8 sm:hover:text-blue-700'
               onClick={() => {
                 closeMenu(); // Primero, llama a la función closeMenu
-                onScroll('catalog'); // Luego, llama a la función onScroll con el parámetro 'catalog'
-              }}
+                navigate('/catalogo');              }}
             >
               Catálogo
             </button>
@@ -142,8 +146,7 @@ function NavBar({ onScroll }) {
               className='btnNav text-white text-[1rem] sm:text-lg lg:text-xl sm:w-30 w-24 h-8 sm:hover:text-blue-700 mr-1'
               onClick={() => {
                 closeMenu(); // Primero, llama a la función closeMenu
-                onScroll('contact'); // Luego, llama a la función onScroll con el parámetro 'contact'
-              }}
+                navigate('/contacto');              }}
             >
               Contacto
             </button>
