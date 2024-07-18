@@ -20,21 +20,24 @@ const Home = () => {
       </div>
 
       {/* Card */}
-      <div className="   m-[3rem] text-center flex i">
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center justify-center'>
+      <div className="w-full mt-5 text-center">
+        <div className='p-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-center'>
           <div className="col-span-1">
             <h1 className=" mb-8 text-3xl xl:text-5xl	font-bold	">ALQUILER DE FLORES Y PLANTAS PARA EVENTOS</h1>
             <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic rerum alias illo ad necessitatibus, perferendis pariatur labore minus sed aspernatur mollitia, nisi, dolores veniam ullam vel dolor voluptate consequuntur nihil!</h3>
             <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat facilis nesciunt ullam obcaecati recusandae dolore adipisci quidem a ab fuga numquam, illum repellat pariatur cupiditate blanditiis asperiores reprehenderit. Placeat, doloremque.</h3>
           </div>
-          <div className="col-span-1 ">
+          <div className="col-span-1  ">
             <Card image={banner2}/>
           </div>
         </div>
       </div>
 
+      <div className="border-b-2 w-[95%] mx-auto m-5	"></div>
+
       {/* Services */}
       <div id="servicios" className= "m-[3rem] text-center flex flex-col items-center">
+      <h2 className='text-center text-4xl mb-8 font-bold'>Nuestros Servicios.</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-1 items-start justify-center">
           <div className="col-span-1 flex flex-col items-center">
             <Card image={banner2} />
