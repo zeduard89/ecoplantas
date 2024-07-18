@@ -87,7 +87,7 @@ function NavBar({ onScroll }) {
         } flex items-center justify-between ml-[-1.5rem] mt-[7.5rem] sm:ml-0 sm:mt-0 sm:flex w-full`}
         id="navbar-hamburger"
       >
-        <a className='hidden sm:flex items-center' href="https://www.google.com/webhp?hl=es-419&sa=X&ved=0ahUKEwiskqnWpa2HAxXBq5UCHeZyB_MQPAgIhttps://www.google.com/webhp?hl=es-419&sa=X&ved=0ahUKEwiskqnWpa2HAxXBq5UCHeZyB_MQPAgI">
+        <a className='hidden sm:flex items-center' href="https://www.ecoplantas.com.ar/">
           <img className="h-[2.2rem] w-[2.2rem] m-[1rem] rounded-lg" src={hojaCiclo} alt="cv" />
           <h1 className='hidden md:block text-2xl'>Eco Plantas</h1>
         </a>
