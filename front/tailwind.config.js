@@ -15,6 +15,8 @@ export default {
       animation:{
         
         slideDown: 'slideDown 3s',
+        slideLeft: 'slideLeft 2s',
+        slide: 'slide 1s ease-in-out',
 
       },
       keyframes:{
@@ -26,13 +28,35 @@ export default {
           '100%':{
             transform: 'translateY(0rem)'
           }
+        },
+        slideLeft:{
+          '0%':{
+            transform: 'translatex(-7rem)',
+            opacity:'0%'
+          },
+          '25%':{
+            opacity:'0%'
+          },
+          '55%':{
+            opacity:'50%'
+          },
+          '100%':{
+            transform: 'translatex(0rem)',
+            opacity:'0%'
+          }
+        },
+        slide: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
       },
-    },
   },
   boxShadow:{},
   },
-  variants:{
-    extends: {}
+  variants: {
+    extend: {
+      display: ['group-hover'],
+    },
   },
   plugins: [],
 }
