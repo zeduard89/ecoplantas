@@ -1,6 +1,6 @@
 import React from 'react'
 import hojaCiclo from "../Utils/NavBarPics/hojasCiclo.png";
-
+import './footer.css'
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
     className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
     <div
       className="h-[3rem] flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
-      <div className="mr-12 hidden lg:block">
+      <div className="mr-12">
         <span>Mantengos contacto por medio de nuestras Redes:</span>
       </div>
       {/* Iconos Social Media */}
@@ -57,7 +57,7 @@ const Footer = () => {
           </p>
         </div>
         {/* <!-- Products section --> */}
-        <div className="">
+        <div className="hidden lg:block">
           <h6
             className="mb-2 flex justify-center font-semibold uppercase md:justify-start">
             Productos
@@ -78,9 +78,9 @@ const Footer = () => {
             <a className="text-neutral-600 dark:text-neutral-200"
             >Otros</a>
           </p>
-        </div>
+        </div >
         {/* <!-- Useful links section --> */}
-        <div className="">
+        <div className="hidden lg:block">
           <h6
             className="mb-2 flex justify-center font-semibold uppercase md:justify-start">
             Links Utiles
@@ -103,9 +103,9 @@ const Footer = () => {
           </p>
         </div>
         {/* <!-- Contact section --> */}
-        <div>
+        <div className="responsive-div ">
           <h6
-            className="mb-2 flex justify-center font-semibold uppercase md:justify-start">
+            className=" mb-2 flex justify-center font-semibold uppercase md:justify-start">
             Contacto
           </h6>
           <p className="mb-2 flex items-center justify-center md:justify-start">
