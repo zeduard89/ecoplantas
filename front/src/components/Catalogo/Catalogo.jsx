@@ -1,25 +1,74 @@
 import React from 'react'
-import Card from '../Card/Card';
-import  {banner2}  from '../Utils/Cloudinary/Cloudinary';
+import CardCatalogo from '../Card/CardCatalogo';
+import macetas from './data/Macetas'; // Importa los datos de las macetas
+import plantas from './data/Plantas'; // Importa los datos de las macetas
+import varios from './data/Varios'; // Importa los datos de las macetas
+
 
 const Catalogo = () => {
   return (
-    <div>
-        {/* Card */}
-      <div className="w-full mt-[11rem] text-center">
-        <div className='p-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-center'>
-          <div className="col-span-1">
-            <h1 className=" mb-8 text-3xl xl:text-5xl	font-bold	">CATALOGO EN PROCESO</h1>
-            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic rerum alias illo ad necessitatibus, perferendis pariatur labore minus sed aspernatur mollitia, nisi, dolores veniam ullam vel dolor voluptate consequuntur nihil!</h3>
-            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat facilis nesciunt ullam obcaecati recusandae dolore adipisci quidem a ab fuga numquam, illum repellat pariatur cupiditate blanditiis asperiores reprehenderit. Placeat, doloremque.</h3>
-          </div>
-          <div className="col-span-1  ">
-            <Card image={banner2}/>
-          </div>
+    <div className="">
+      <div className="w-full h-full mt-[8rem] text-center">
+        <h1 className="text-6xl mb-8 md:ml-[20rem] ml-[8rem] ">CATALOGO</h1>
+        
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  ">
+            
+            <div className=" col-span-1">
+              <div className="bg-white m-8 rounded-md h-[30rem]">
+                TABLERO
+              </div>
+            </div>
+
+            
+              {/* Macetas */}
+              <div className="">
+                
+                <h1 className="text-4xl">MACETAS</h1>
+                <div className='flex flex-row justify-between	flex-wrap		'>
+                  {macetas.map((maceta, index) => (
+                    <div key={index} className="">
+                      <CardCatalogo {...maceta} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+                {/* Varios */}
+                <div>
+                  <h1 className="text-4xl">PLANTAS</h1>
+                  <div className='flex flex-row justify-between	flex-wrap		'>
+                    {plantas.map((planta, index) => (
+                      <div key={index} className="">
+                        <CardCatalogo {...planta} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Varios */}
+                <div>
+                  <h1 className="text-4xl">VARIOS</h1>
+                  <div className='flex flex-row justify-between	flex-wrap		'>
+                    {varios.map((vario, index) => (
+                      <div key={index} className="">
+                        <CardCatalogo {...vario} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+            
+          
+            
+            
+
+
         </div>
+        
+
+
       </div>
     </div>
   )
 }
 
-export default Catalogo
+export default Catalogo;

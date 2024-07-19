@@ -126,6 +126,7 @@ function NavBar({ onScroll }) {
               onClick={() => {
                 closeMenu(); // Primero, llama a la función closeMenu
                 navigate('/historia'); 
+                onScroll('inicio')
               }}
             >
               Quiénes Somos
@@ -136,7 +137,8 @@ function NavBar({ onScroll }) {
               className='btnNav text-white text-[1rem] sm:text-lg lg:text-xl sm:w-30 w-24 h-8 sm:hover:text-blue-700'
               onClick={() => {
                 closeMenu(); // Primero, llama a la función closeMenu
-                navigate('/catalogo');              }}
+                navigate('/catalogo');
+                onScroll('inicio')              }}
             >
               Catálogo
             </button>
@@ -146,7 +148,8 @@ function NavBar({ onScroll }) {
               className='btnNav text-white text-[1rem] sm:text-lg lg:text-xl sm:w-30 w-24 h-8 sm:hover:text-blue-700 mr-1'
               onClick={() => {
                 closeMenu(); // Primero, llama a la función closeMenu
-                navigate('/contacto');              }}
+                navigate('/contacto');
+                onScroll('inicio')              }}
             >
               Contacto
             </button>

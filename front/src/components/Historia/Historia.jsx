@@ -5,7 +5,7 @@ import { banner1, banner2, banner3, banner4 } from '../Utils/Cloudinary/Cloudina
 
 const Historia = () => {
   return (
-    <div className="lg:w-[80%] w-[90%] mx-auto lg:mx-auto">
+    <div  className="lg:w-[80%] w-[90%] mx-auto lg:mx-auto">
       <div className="mt-[8rem] mx-[1rem] space-x-1 sm:flex flex-row justify-center content-center text-center">
         <div className="sm:w-[80rem] mr-[1.5rem]">
           <Card image={banner1} />

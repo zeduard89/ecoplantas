@@ -2,7 +2,7 @@ import React from 'react';
 import { AdvancedImage } from '@cloudinary/react';
 
 
-const Card = ( {image} ) => {
+const Card = ( {image,title,description} ) => {
   return (
     <div className=' shadow-md rounded-md ml-5'>
       <div className='mb-4'>

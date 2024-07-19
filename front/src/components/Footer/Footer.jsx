@@ -1,14 +1,19 @@
 import React from 'react'
 import hojaCiclo from "../Utils/NavBarPics/hojasCiclo.png";
+import { Link, useNavigate } from 'react-router-dom';
+
 import './footer.css'
 
-const Footer = () => {
+const Footer = ({ onScroll }) => {
+  
+  const navigate = useNavigate();
+  
   return (
     
-    <footer
-    className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
-    <div
-      className="h-[3rem] flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
+  <footer className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
+      
+    <div className="h-[3rem] flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
+      
       <div className="mr-12">
         <span>Mantengos contacto por medio de nuestras Redes:</span>
       </div>
@@ -58,10 +63,14 @@ const Footer = () => {
         </div>
         {/* <!-- Products section --> */}
         <div className="hidden lg:block">
-          <h6
-            className="mb-2 flex justify-center font-semibold uppercase md:justify-start">
+          <button
+            className="mb-2 flex justify-center font-semibold uppercase md:justify-start"
+            onClick={() => {
+              navigate('/catalogo');
+              onScroll('inicio');
+            }}>
             Productos
-          </h6>
+          </button>
           <p className="mb-2">
             <a className="text-neutral-600 dark:text-neutral-200"
             >Macetas</a>
@@ -104,10 +113,15 @@ const Footer = () => {
         </div>
         {/* <!-- Contact section --> */}
         <div className="responsive-div ">
-          <h6
-            className=" mb-2 flex justify-center font-semibold uppercase md:justify-start">
+          <button
+            className="mb-2 flex justify-center font-semibold uppercase md:justify-start"
+            onClick={() => {
+              navigate('/contacto');
+              onScroll('inicio');
+            }}>
             Contacto
-          </h6>
+          </button>
+
           <p className="mb-2 flex items-center justify-center md:justify-start">
             <svg
               xmlns="http://www.w3.org/2000/svg"
