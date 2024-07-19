@@ -1,9 +1,9 @@
-Atajos
+Atajos ----------------------------------------------------
 
 Rafce
 
 
-Dependecias:
+Dependecias------------------------------------------------
 
 @reduxjs/toolkit
 react-redux
@@ -12,6 +12,12 @@ install emailjs-com  "email"
 swipper "Carruosel"
 
 
-Tailwind Css
+Tailwind Css ----------------
     npm install -D tailwindcss postcss autoprefixer
     npx tailwindcss init -p
+
+EmailJS------------------------------------------------------
+
+https://dashboard.emailjs.com/admin
+user:zeduard89@gmail.coom
+pass:
