@@ -8,6 +8,9 @@ Dependecias:
 @reduxjs/toolkit
 react-redux
 react-router-dom
+install emailjs-com  "email"
+swipper "Carruosel"
+
 
 Tailwind Css
     npm install -D tailwindcss postcss autoprefixer
