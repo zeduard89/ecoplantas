@@ -12,8 +12,12 @@ export default {
         navBarColor:'#525252',
         
       },
-      animation:{
-        
+      boxShadow: {
+        'card-custom': '0 4px 10px -2px rgba(34, 197, 94, 0.5)',
+        'card-landing': 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
+        'card-history': 'rgba(34, 197, 94, 0.3) 6px 2px 16px 0px, rgba(34, 197, 94, 0.3) -6px -2px 16px 0px',
+      },
+      animation:{ 
         slideDown: 'slideDown 3s',
         slideLeft: 'slideLeft 2s',
         slide: 'slide 1s ease-in-out',
@@ -51,7 +55,6 @@ export default {
         },
       },
   },
-  boxShadow:{},
   },
   variants: {
     extend: {

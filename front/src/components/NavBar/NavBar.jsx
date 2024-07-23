@@ -92,7 +92,7 @@ function NavBar({ onScroll }) {
       >
         <a className='hidden sm:flex items-center' href="https://www.ecoplantas.com.ar/">
           <img className="h-[2.2rem] w-[2.2rem] m-[1rem] rounded-lg" src={hojaCiclo} alt="cv" />
-          <h1 className='hidden md:block text-2xl'>Eco Plantas</h1>
+          <h2 className='hidden md:block text-2xl'>Eco Plantas</h2>
         </a>
 
         <ul className="bg-slate-800 divide-gray-100 sm:bg-transparent flex flex-col sm:flex-row text-center justify-center rounded-md border-2 sm:border-none border-slate-300">

@@ -7,7 +7,6 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #D9D4C9;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -15,7 +14,14 @@
   -webkit-text-size-adjust: 100%;
 }
 
-
+h1 {
+  color: #43a74b;
+}
+h3{
+  font-size:large ;
+  font-weight: 500;
+  line-height: 1.3;
+}
 
 
 

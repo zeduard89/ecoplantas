@@ -8,20 +8,21 @@ import varios from './data/Varios'; // Importa los datos de las macetas
 const Catalogo = () => {
   return (
     <div className="my-[6rem] text-center">
-      <h1 className="text-6xl mb-8 md:ml-[20rem] ml-[8rem] ">CATALOGO</h1> 
+      <h1 className="text-5xl	font-bold text-center mb-8 ">CATALOGO</h1> 
       <div className="flex columns-2 ">
           
       {/* Tablero */}
       <div className="w-[50%] md:w-[30%] lg:w-[30%] xl:w-[25%]">
-        <div className="bg-white m-8 rounded-md h-[30rem] mt-20 sticky top-36">
-          TABLERO
-        </div>
+        <div className='sticky top-36 h-[35rem]'>
+          <h1 className="text-4xl text-white font-bold">PRESUPUESTO</h1>
+          <div className="bg-white m-8 rounded-md h-[30rem]"></div>
+        </div >
       </div>
 
       <div className="w-[50%] sm:w-[70%] flex flex-wrap">
       {/* Macetas */}
       <div >    
-        <h1 className="text-4xl">MACETAS</h1>
+        <h1 className="text-4xl text-white font-bold">MACETAS</h1>
         <div className='flex flex-row justify-center	flex-wrap  '>
           {macetas.map((maceta, index) => (
           <div key={index} className="">
