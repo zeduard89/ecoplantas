@@ -7,7 +7,7 @@ import varios from './data/Varios'; // Importa los datos de las macetas
 
 const Catalogo = () => {
   return (
-    <div className="my-[5rem] text-center">
+    <div className="my-[6rem] text-center">
       <h1 className="text-6xl mb-8 md:ml-[20rem] ml-[8rem] ">CATALOGO</h1> 
       <div className="flex columns-2 ">
           
@@ -34,7 +34,7 @@ const Catalogo = () => {
       {/* Varios */}
       <div>
             <h1 className="text-4xl">PLANTAS</h1>
-            <div className='flex flex-row justify-between	flex-wrap	sm:ml-20	'>
+            <div className='flex flex-row justify-center	flex-wrap'>
               {plantas.map((planta, index) => (
               <div key={index} className="">
                 <CardCatalogo {...planta} />
@@ -46,7 +46,7 @@ const Catalogo = () => {
           {/* Varios */}
           <div>
             <h1 className="text-4xl">VARIOS</h1>
-            <div className='flex flex-row justify-between	flex-wrap	sm:ml-20	'>
+            <div className='flex flex-row justify-center	flex-wrap'>
               {varios.map((vario, index) => (
                 <div key={index} className="">
                   <CardCatalogo {...vario} />

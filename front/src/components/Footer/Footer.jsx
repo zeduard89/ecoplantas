@@ -40,7 +40,7 @@ const Footer = ({ onScroll }) => {
       <span>© 2024 Copyright:</span>
       <a
         className="font-semibold text-neutral-600 dark:text-neutral-400"
-        href="https://tw-elements.com/"
+        href="mailto:zeduard89@gmail.com"
       > zEduard89</a>
     </div>
   </footer>
