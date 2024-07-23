@@ -59,7 +59,7 @@ const Contacto = () => {
 
   return (
     <div>
-      <div className="grid md:grid-cols-2 gap-16 items-center relative overflow-hidden p-8 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-3xl max-w-6xl my-32 md:mx-32 mx-10 bg-white before:absolute before:right-0 before:w-[30%] border-bg-zinc-100 border-l-2 before:bg-zinc-600 before:h-full max-md:before:hidden">
+      <div className="grid md:grid-cols-2 gap-16 items-center relative overflow-hidden p-8 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-3xl max-w-6xl my-32 md:mx-32 mx-10 bg-white before:absolute before:right-0 before:w-[30%] border-l-green-600 border-l-2 before:bg-green-800 before:h-full max-md:before:hidden">
         <div>
           <h2 className="text-zinc-700 text-4xl font-extrabold">Ponte en Contacto</h2>
           <p className="text-sm text-gray-500 mt-4 leading-relaxed">
@@ -76,7 +76,7 @@ const Contacto = () => {
                   name="user_name"
                   value={formValues.user_name}
                   onChange={handleChange}
-                  className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-blue-600 outline-none"
+                  className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-green-600 outline-none"
                 />
                 {errors.user_name && <p className="absolute text-red-600 text-sm">{errors.user_name}</p>}
               </div>
@@ -88,7 +88,7 @@ const Contacto = () => {
                   name="user_direccion"
                   value={formValues.user_direccion}
                   onChange={handleChange}
-                  className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-blue-600 outline-none"
+                  className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-green-600 outline-none"
                 />
                 {errors.user_direccion && <p className="absolute text-red-600 text-sm">{errors.user_direccion}</p>}
               </div>
@@ -101,7 +101,7 @@ const Contacto = () => {
                     name="user_ciudad"
                     value={formValues.user_ciudad}
                     onChange={handleChange}
-                    className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-blue-600 outline-none"
+                    className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:green-blue-600 outline-none"
                   />
                   {errors.user_ciudad && <p className="absolute text-red-600 text-sm">{errors.user_ciudad}</p>}
                 </div>
@@ -113,7 +113,7 @@ const Contacto = () => {
                     name="user_codigoPostal"
                     value={formValues.user_codigoPostal}
                     onChange={handleChange}
-                    className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-blue-600 outline-none"
+                    className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:green-blue-600 outline-none"
                   />
                   {errors.user_codigoPostal && <p className="absolute text-red-600 text-sm">{errors.user_codigoPostal}</p>}
                 </div>
@@ -126,7 +126,7 @@ const Contacto = () => {
                   name="user_telefono"
                   value={formValues.user_telefono}
                   onChange={handleChange}
-                  className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-blue-600 outline-none"
+                  className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-green-600 outline-none"
                 />
                 {errors.user_telefono && <p className="absolute text-red-600 text-sm">{errors.user_telefono}</p>}
               </div>
@@ -138,7 +138,7 @@ const Contacto = () => {
                   name="user_email"
                   value={formValues.user_email}
                   onChange={handleChange}
-                  className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-blue-600 outline-none"
+                  className="px-2 py-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-green-600 outline-none"
                 />
                 {errors.user_email && <p className="absolute text-red-600 text-sm">{errors.user_email}</p>}
               </div>
@@ -149,13 +149,13 @@ const Contacto = () => {
                   name="message"
                   value={formValues.message}
                   onChange={handleChange}
-                  className="px-2 pt-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-blue-600 outline-none"
+                  className="px-2 pt-3 bg-white w-full text-gray-800 text-sm border-b border-gray-300 focus:border-green-600 outline-none"
                 ></textarea>
                 {errors.message && <p className="absolute text-red-600 text-sm">{errors.message}</p>}
               </div>
             </div>
 
-            <button type="submit" className="mt-8 flex items-center justify-center text-sm w-full rounded-md px-6 py-3 bg-zinc-400 hover:bg-blue-700 text-white">
+            <button type="submit" className="mt-8 flex items-center justify-center text-sm w-full rounded-md px-6 py-3 bg-green-700 hover:bg-green-600 text-white">
               Enviar Mensaje
             </button>
           </form>
