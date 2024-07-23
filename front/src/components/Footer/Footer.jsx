@@ -23,9 +23,15 @@ const Footer = ({ onScroll }) => {
         </a>
       <div className='flex flew-row items-center'>
           <span className='mr-2'>Mantengos contacto por medio de nuestras Redes:</span>
-          <img src={instagram} alt="instagram" className='h-[1.5rem] mr-2' />
-          <img src={whatsapp} alt="whatsapp" className='h-[1.5rem] mr-2' />
-          <img src={email} alt="directory" className='h-[1.5rem] mr-2' />
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+            <img src={instagram} alt="instagram" className='h-[1.5rem] mr-2 hover:bg-red-300 border-1 rounded '/> 
+          </a>
+          <a href="https://wa.me/1134570444" target="_blank" rel="noopener noreferrer">
+            <img src={whatsapp} alt="whatsapp ico" className='h-[1.5rem] mr-2 hover:bg-lime-500 border-1 rounded-md' />
+          </a>
+          <a href="mailto:zeduard89@gmail.com">
+            <img src={email} alt="email icon" className='h-[1.5rem] mr-2 hover:bg-rose-500 border-1 rounded' />
+          </a>
       </div>
     </div>
 
