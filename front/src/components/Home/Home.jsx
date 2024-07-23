@@ -10,7 +10,7 @@ const Home = () => {
     <div>
       
       {/* Carrusel */}
-      <div className=' border-b-2 border-green-700	'>
+      <div className=' border-b-2	'>
         <Carrousel/>
         <div className='bg-black/[.2] z-40 h-[40rem] w-full absolute inset-0 flex flex-col items-center justify-center  text-white'>
           <h1 className='text-center text-white text-7xl font-bold mb-2'>Eco Plantas</h1>

@@ -3,7 +3,8 @@ import CardCatalogo from '../Card/CardCatalogo';
 import macetas from './data/Macetas'; // Importa los datos de las macetas
 import plantas from './data/Plantas'; // Importa los datos de las macetas
 import varios from './data/Varios'; // Importa los datos de las macetas
-
+import tablero from './Tablero'
+import Tablero from './Tablero';
 
 const Catalogo = () => {
   return (
@@ -14,15 +15,15 @@ const Catalogo = () => {
       {/* Tablero */}
       <div className="w-[50%] md:w-[30%] lg:w-[30%] xl:w-[25%]">
         <div className='sticky top-36 h-[35rem]'>
-          <h1 className="text-4xl text-white font-bold">PRESUPUESTO</h1>
-          <div className="bg-white m-8 rounded-md h-[30rem]"></div>
+          <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">PRESUPUESTO</h1>
+          <Tablero/>
         </div >
       </div>
 
       <div className="w-[50%] sm:w-[70%] flex flex-wrap">
       {/* Macetas */}
       <div >    
-        <h1 className="text-4xl text-white font-bold">MACETAS</h1>
+        <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">MACETAS</h1>
         <div className='flex flex-row justify-center	flex-wrap  '>
           {macetas.map((maceta, index) => (
           <div key={index} className="">
@@ -34,7 +35,7 @@ const Catalogo = () => {
       
       {/* Varios */}
       <div>
-            <h1 className="text-4xl">PLANTAS</h1>
+            <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">PLANTAS</h1>
             <div className='flex flex-row justify-center	flex-wrap'>
               {plantas.map((planta, index) => (
               <div key={index} className="">
@@ -46,7 +47,7 @@ const Catalogo = () => {
 
           {/* Varios */}
           <div>
-            <h1 className="text-4xl">VARIOS</h1>
+            <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">VARIOS</h1>
             <div className='flex flex-row justify-center	flex-wrap'>
               {varios.map((vario, index) => (
                 <div key={index} className="">

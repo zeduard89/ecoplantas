@@ -6,23 +6,21 @@ const shadowOn = true;
 
 const Historia = () => {
   return (
-    <div  className="lg:w-[80%] w-[90%] mx-auto lg:mx-auto">
-      <div className="mt-[8rem] mx-[1rem] space-x-1 sm:flex flex-row justify-center content-center text-center">
-        <div className="sm:w-[80rem] mr-[1.5rem] ">
-        <Card image={banner1} shadowOn={shadowOn} />
+    <div  className="lg:w-[90%] w-[90%] mx-auto lg:mx-auto">
+      <div className="mt-[8rem] mx-[1rem] space-x-1 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2  justify-items-center  text-center">
+        <div className="w-[60%] lg:w-[80%] col-span-1 place-content-center ">
+          <Card image={banner1} shadowOn={shadowOn} />
         </div>
-        <div className='content-center'>
-          <h1 className='mb-[1rem] text-5xl '>¿Quiénes Somos?</h1>
-          <h3>
-            Fundada en 2010, Eco Plantas es una empresa dedicada al alquiler de flores y plantas para eventos y espacios corporativos. Nuestro objetivo es transformar cualquier entorno en un oasis de verde, aportando frescura y elegancia a cada ocasión.
-          </h3>
-          <h3>
+        <div className='content-center col-span-1'>
+          <h1 className='mb-[1rem] text-5xl font-semibold '>¿Quiénes Somos?</h1>
+          <h4 className='font-bold'>
+            Fundada en 2010, Eco Plantas es una empresa dedicada al alquiler de flores y plantas para eventos y espacios corporativos. Nuestro objetivo es transformar cualquier entorno en un oasis de verde, aportando frescura y elegancia a cada ocasión.<br/><br/>
             A lo largo de los años, hemos trabajado con una amplia variedad de clientes, desde bodas y eventos corporativos hasta decoraciones para oficinas. Nuestra pasión por las plantas y el diseño floral nos ha llevado a crear espacios únicos y memorables para cada uno de nuestros clientes.
-          </h3>
+          </h4>
         </div>
       </div>
 
-      <h1 className="w-[70%] sm:w-[60%] lg:w-[40%] p-1 mx-auto mt-28 border-t-2 border-x-2 rounded-t-full text-3xl text-center">
+      <h1 className="w-[70%] sm:w-[60%] lg:w-[40%] p-1 mx-auto mt-28 border-t-2 border-x-2 rounded-t-full text-3xl font-semibold text-center">
         Conoce Nuestra Trayectoria
       </h1>
 
