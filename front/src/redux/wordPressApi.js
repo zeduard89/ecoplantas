@@ -31,13 +31,13 @@ export default async function obtenerDatosPosts() {
       // Obtiene la categoria de la imagen
       category = Object.keys(post.categories);
       if (category.length > 0) {
-        category = post.categories[category[0]].name; // Usa el primer attachment ID
+        category = post.categories[category[category.length-1]].name; // Usa el primer attachment ID
       }
       
       // Obtiene la URL de la imagen
       const idUrl = Object.keys(post.attachments);
       if (idUrl.length > 0) {
-        imgUrl = post.attachments[idUrl[0]].URL; // Usa el primer attachment ID
+        imgUrl = post.attachments[idUrl[idUrl.length-1]].URL; // Usa el primer attachment ID
       }
       
       // Almacena los resultados

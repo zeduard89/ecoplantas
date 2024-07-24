@@ -14,13 +14,13 @@ const Catalogo = () => {
 
   return (
     <div className="my-[6rem] text-center">
-      <h1 className="text-5xl	font-bold text-center mb-8 ">CATALOGO</h1> 
+      <h1 className="text-5xl	font-bold text-center mb-16 ">CATALOGO</h1> 
       <div className="flex columns-2 ">
         
         {/* Tablero */}
         <div className="w-[50%] md:w-[30%] lg:w-[30%] xl:w-[25%]">
           <div className='sticky top-36 h-[35rem]'>
-            <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">PRESUPUESTO</h1>
+            <h1 className="mb-10 text-3xl md:text-4xl lg:text-4xl text-white font-bold">PRESUPUESTO</h1>
             <Tablero/>
           </div >
         </div>
@@ -28,7 +28,7 @@ const Catalogo = () => {
         <div className="w-[50%] sm:w-[70%] flex flex-col justify-center	">
           {/* Macetas */}
           <div >    
-            <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">MACETAS</h1>
+            <h1 className="mb-6 text-3xl md:text-4xl lg:text-4xl text-white font-bold">MACETAS</h1>
             <div className='flex flex-row justify-center	flex-wrap  '>
               {catalogo.macetas.map((maceta, index) => (
               <div key={index} className="">
@@ -40,7 +40,7 @@ const Catalogo = () => {
           
           {/* Varios */}
           <div>
-            <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">PLANTAS</h1>
+            <h1 className="mt-16 text-3xl md:text-4xl lg:text-4xl text-white font-bold">PLANTAS</h1>
             <div className='flex flex-row justify-center	flex-wrap'>
               {catalogo.plantas.map((planta, index) => (
               <div key={index} className="">
@@ -52,7 +52,7 @@ const Catalogo = () => {
 
           {/* Varios */}
           <div>
-            <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">VARIOS</h1>
+            <h1 className="mt-16 text-3xl md:text-4xl lg:text-4xl text-white font-bold">VARIOS</h1>
             <div className='flex flex-row justify-center	flex-wrap'>
               {catalogo.varios.map((vario, index) => (
               <div key={index} className="">
