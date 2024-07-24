@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { AdvancedImage } from '@cloudinary/react';
-import { banner1, banner2, banner3, banner4 } from '../Utils/Cloudinary/Cloudinary';
+import image from '../Utils/imges/carrousel/carrouselLoader'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -44,10 +43,11 @@ const Carrousel = () => {
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper"
       >
-        <SwiperSlide><AdvancedImage cldImg={banner1} /></SwiperSlide>
-        <SwiperSlide><AdvancedImage cldImg={banner2} /></SwiperSlide>
-        <SwiperSlide><AdvancedImage cldImg={banner3} /></SwiperSlide>
-        <SwiperSlide><AdvancedImage cldImg={banner4} /></SwiperSlide>
+                
+        <SwiperSlide><img src={image.img1} alt="Imagen1" /></SwiperSlide>
+        <SwiperSlide><img src={image.img2} alt="Imagen2" /></SwiperSlide>
+        <SwiperSlide><img src={image.img3} alt="Imagen3" /></SwiperSlide>
+        <SwiperSlide><img src={image.img4} alt="Imagen4" /></SwiperSlide>
         
         <div className="autoplay-progress" slot="container-end">
           <svg viewBox="0 0 48 48" ref={progressCircle}>

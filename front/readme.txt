@@ -10,7 +10,7 @@ react-redux
 react-router-dom
 install emailjs-com  "email"
 swipper "Carruosel"
-
+npm install redux-persist 
 
 Tailwind Css ----------------
     npm install -D tailwindcss postcss autoprefixer
