@@ -6,9 +6,13 @@ import  {banner2}  from '../Utils/Cloudinary/Cloudinary';
 
 const Home = () => {
 
+  // Llamar a la función y mostrar los resultados
+obtenerDatosPosts().then(resultados => {
+  console.log(resultados);
+});
+
   return (
     <div>
-      
       {/* Carrusel */}
       <div className=' border-b-2	'>
         <Carrousel/>
@@ -35,6 +39,8 @@ const Home = () => {
       </div>
 
       <div className="border-b-2 w-[95%] mx-auto m-5	"></div>
+
+
 
       {/* Services */}
       <div id="servicios" className= "m-[3rem] text-center flex flex-col items-center">
