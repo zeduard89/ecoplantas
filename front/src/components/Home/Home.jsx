@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useCallback } from 'react';
 //Update catalogo
 import { useDispatch } from "react-redux";
 import obtenerDatosPosts from '../../redux/wordPressApi'
@@ -13,22 +13,21 @@ const Home = () => {
 
   //get catalogo from  wordpress y update redux
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const datosPosts = await obtenerDatosPosts();
-        dispatch(addCatalogo(datosPosts))
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
 
+
+  const fetchPosts = useCallback(async () => {
+    try {
+      const datosPosts = await obtenerDatosPosts();
+      console.log(datosPosts)
+      dispatch(addCatalogo(datosPosts));
+    } catch (err) {
+      console.log("error",err);
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [fetchPosts]);
 
 
 
