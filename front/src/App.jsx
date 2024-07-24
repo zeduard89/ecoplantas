@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 //Tailwind
 import 'tailwindcss/tailwind.css';
 
+
 function App() {
 
   function handleScroll (sectionId) { // Agrega el tipo explícito 'string' para sectionId

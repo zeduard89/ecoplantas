@@ -1,43 +1,48 @@
 import React from 'react'
 import CardCatalogo from '../Card/CardCatalogo';
-import macetas from './data/Macetas'; // Importa los datos de las macetas
-import plantas from './data/Plantas'; // Importa los datos de las macetas
-import varios from './data/Varios'; // Importa los datos de las macetas
-import tablero from './Tablero'
+import { useSelector} from 'react-redux';
+
 import Tablero from './Tablero';
 
 const Catalogo = () => {
+
+
+    
+
+  const catalogo = useSelector((state)=> state.catalogo)
+
+
   return (
     <div className="my-[6rem] text-center">
       <h1 className="text-5xl	font-bold text-center mb-8 ">CATALOGO</h1> 
       <div className="flex columns-2 ">
-          
-      {/* Tablero */}
-      <div className="w-[50%] md:w-[30%] lg:w-[30%] xl:w-[25%]">
-        <div className='sticky top-36 h-[35rem]'>
-          <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">PRESUPUESTO</h1>
-          <Tablero/>
-        </div >
-      </div>
-
-      <div className="w-[50%] sm:w-[70%] flex flex-wrap">
-      {/* Macetas */}
-      <div >    
-        <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">MACETAS</h1>
-        <div className='flex flex-row justify-center	flex-wrap  '>
-          {macetas.map((maceta, index) => (
-          <div key={index} className="">
-            <CardCatalogo {...maceta} />
-          </div>
-          ))}
+        
+        {/* Tablero */}
+        <div className="w-[50%] md:w-[30%] lg:w-[30%] xl:w-[25%]">
+          <div className='sticky top-36 h-[35rem]'>
+            <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">PRESUPUESTO</h1>
+            <Tablero/>
+          </div >
         </div>
-      </div>        
-      
-      {/* Varios */}
-      <div>
+
+        <div className="w-[50%] sm:w-[70%] flex flex-col justify-center	">
+          {/* Macetas */}
+          <div >    
+            <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">MACETAS</h1>
+            <div className='flex flex-row justify-center	flex-wrap  '>
+              {catalogo.macetas.map((maceta, index) => (
+              <div key={index} className="">
+                <CardCatalogo {...maceta} />
+              </div>
+              ))}
+            </div>
+          </div>        
+          
+          {/* Varios */}
+          <div>
             <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">PLANTAS</h1>
             <div className='flex flex-row justify-center	flex-wrap'>
-              {plantas.map((planta, index) => (
+              {catalogo.plantas.map((planta, index) => (
               <div key={index} className="">
                 <CardCatalogo {...planta} />
               </div>
@@ -49,44 +54,49 @@ const Catalogo = () => {
           <div>
             <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">VARIOS</h1>
             <div className='flex flex-row justify-center	flex-wrap'>
-              {varios.map((vario, index) => (
-                <div key={index} className="">
-                  <CardCatalogo {...vario} />
-                </div>
-                ))}
+              {catalogo.varios.map((vario, index) => (
+              <div key={index} className="">
+                <CardCatalogo {...vario} />
+              </div>
+              ))}
             </div>
           </div>
-        </div>
-        </div>
-      </div>  
-           
-      
-           
-         
+
+        </div> 
+      </div>
+    </div>       
   )
 }
 
 export default Catalogo;
 
+// import React from 'react'
+// import CardCatalogo from '../Card/CardCatalogo';
+// import macetas from './data/Macetas'; // Importa los datos de las macetas
+// import plantas from './data/Plantas'; // Importa los datos de las macetas
+// import varios from './data/Varios'; // Importa los datos de las macetas
+// import tablero from './Tablero'
+// import Tablero from './Tablero';
 
 // const Catalogo = () => {
 //   return (
-//     <div className="mt-[5rem] text-center">
-//       <h1 className="text-6xl mb-8 md:ml-[20rem] ml-[8rem] ">CATALOGO</h1> 
-//       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
+//     <div className="my-[6rem] text-center">
+//       <h1 className="text-5xl	font-bold text-center mb-8 ">CATALOGO</h1> 
+//       <div className="flex columns-2 ">
           
 //       {/* Tablero */}
-//       <div className="md:w-[20rem] col-span-1 mt-6">
-//         <div className="bg-white m-8 rounded-md h-[30rem] sitcky top-36">
-//           TABLERO
-//         </div>
+//       <div className="w-[50%] md:w-[30%] lg:w-[30%] xl:w-[25%]">
+//         <div className='sticky top-36 h-[35rem]'>
+//           <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">PRESUPUESTO</h1>
+//           <Tablero/>
+//         </div >
 //       </div>
 
-//       <div className="md:p-12 col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-3 ">
+//       <div className="w-[50%] sm:w-[70%] flex flex-wrap">
 //       {/* Macetas */}
-//       <div>    
-//         <h1 className="text-4xl">MACETAS</h1>
-//         <div className='flex flex-row justify-between	flex-wrap'>
+//       <div >    
+//         <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">MACETAS</h1>
+//         <div className='flex flex-row justify-center	flex-wrap  '>
 //           {macetas.map((maceta, index) => (
 //           <div key={index} className="">
 //             <CardCatalogo {...maceta} />
@@ -97,8 +107,8 @@ export default Catalogo;
       
 //       {/* Varios */}
 //       <div>
-//             <h1 className="text-4xl">PLANTAS</h1>
-//             <div className='flex flex-row justify-between	flex-wrap		'>
+//             <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">PLANTAS</h1>
+//             <div className='flex flex-row justify-center	flex-wrap'>
 //               {plantas.map((planta, index) => (
 //               <div key={index} className="">
 //                 <CardCatalogo {...planta} />
@@ -109,8 +119,8 @@ export default Catalogo;
 
 //           {/* Varios */}
 //           <div>
-//             <h1 className="text-4xl">VARIOS</h1>
-//             <div className='flex flex-row justify-between	flex-wrap		'>
+//             <h1 className="text-3xl md:text-4xl lg:text-4xl text-white font-bold">VARIOS</h1>
+//             <div className='flex flex-row justify-center	flex-wrap'>
 //               {varios.map((vario, index) => (
 //                 <div key={index} className="">
 //                   <CardCatalogo {...vario} />

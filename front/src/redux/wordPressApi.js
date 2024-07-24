@@ -1,8 +1,12 @@
 //https://developer.wordpress.com/docs/api/
+//https://public-api.wordpress.com/rest/v1.1/sites/ecoplantascomar.wordpress.com/posts/
 
 export default async function obtenerDatosPosts() {
     // Inicializa un array para almacenar los datos de los posts
     let resultados = [];
+    let macetas = [];
+    let plantas = [];
+    let varios = [];
   
     const response = await fetch('https://public-api.wordpress.com/rest/v1.1/sites/ecoplantascomar.wordpress.com/posts/');
     const data = await response.json();
@@ -15,12 +19,19 @@ export default async function obtenerDatosPosts() {
       let id = post.ID;
       let title = post.title;
       let content = '';
+      let category = '';
       let imgUrl = '';
       
       // Recorta la info de content
       const contentMatch = post.content.match(regex);
       if (contentMatch) {
         content = contentMatch[1];
+      }
+
+      // Obtiene la categoria de la imagen
+      category = Object.keys(post.categories);
+      if (category.length > 0) {
+        category = post.categories[category[0]].name; // Usa el primer attachment ID
       }
       
       // Obtiene la URL de la imagen
@@ -34,9 +45,32 @@ export default async function obtenerDatosPosts() {
         id,
         title,
         content,
-        imgUrl
+        imgUrl,
+        category
       });
     });
+
+    resultados.forEach(element => {
+      switch (element.category) {
+          case "macetas":
+              macetas.push(element)
+              break;
   
-    return resultados;
+          case "plantas":
+              plantas.push(element)
+              break;
+  
+          case "varios":
+              varios.push(element)
+              break;
+  
+          default:
+              console.log("Categoría no reconocida " + {element});
+              break;
+      }
+  });
+
+
+  
+    return {macetas,plantas,varios};
 }

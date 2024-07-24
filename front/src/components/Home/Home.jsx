@@ -1,4 +1,9 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react';
+//Update catalogo
+import { useDispatch } from "react-redux";
+import obtenerDatosPosts from '../../redux/wordPressApi'
+import { addCatalogo } from '../../redux/catalogoSlice';
+//Components
 import Carrousel from './Carrousel';
 import Card from '../Card/Card';
 import  {banner2}  from '../Utils/Cloudinary/Cloudinary';
@@ -6,13 +11,31 @@ import  {banner2}  from '../Utils/Cloudinary/Cloudinary';
 
 const Home = () => {
 
-  // Llamar a la función y mostrar los resultados
-obtenerDatosPosts().then(resultados => {
-  console.log(resultados);
-});
+  //get catalogo from  wordpress y update redux
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const datosPosts = await obtenerDatosPosts();
+        dispatch(addCatalogo(datosPosts))
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+
+
 
   return (
     <div>
+      
       {/* Carrusel */}
       <div className=' border-b-2	'>
         <Carrousel/>
