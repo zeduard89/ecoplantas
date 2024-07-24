@@ -16,7 +16,7 @@ function App() {
   function handleScroll (sectionId) { // Agrega el tipo explícito 'string' para sectionId
     const section = document.getElementById(sectionId);
     if (section) {
-      const offset = -300;
+      const offset = -200;
       window.scrollTo({
         top: section.offsetTop + offset,
         behavior: 'smooth',

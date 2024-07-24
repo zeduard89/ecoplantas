@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import hojaCiclo from "../Utils/NavBarPics/hojasCiclo.png";
+import logo from "../Utils/imges/logo.png";
 
 function NavBar({ onScroll }) {
   const navigate = useNavigate();
@@ -91,7 +91,7 @@ function NavBar({ onScroll }) {
         id="navbar-hamburger"
       >
         <a className='hidden sm:flex items-center' href="https://www.ecoplantas.com.ar/">
-          <img className="h-[2.2rem] w-[2.2rem] m-[1rem] rounded-lg" src={hojaCiclo} alt="cv" />
+          <img className="h-[2.2rem] w-[2.2rem] m-[1rem] rounded-lg" src={logo} alt="cv" />
           <h2 className='hidden md:block text-2xl'>Eco Plantas</h2>
         </a>
 

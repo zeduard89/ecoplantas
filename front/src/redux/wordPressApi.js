@@ -1,5 +1,4 @@
-//https://developer.wordpress.com/docs/api/
-//https://public-api.wordpress.com/rest/v1.1/sites/ecoplantascomar.wordpress.com/posts/
+const VITE_API_BASE_UR = import.meta.env.VITE_API_BASE_UR;
 
 export default async function obtenerDatosPosts() {
     // Inicializa un array para almacenar los datos de los posts
@@ -8,7 +7,7 @@ export default async function obtenerDatosPosts() {
     let plantas = [];
     let varios = [];
   
-    const response = await fetch('https://public-api.wordpress.com/rest/v1.1/sites/ecoplantascomar.wordpress.com/posts/');
+    const response = await fetch({VITE_API_BASE_UR});
     const data = await response.json();
     
     // Expresión regular para extraer contenido entre <p> y </p>
