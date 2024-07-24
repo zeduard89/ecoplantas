@@ -66,31 +66,29 @@ const Home = () => {
 
 
       {/* Services */}
-      <div id="servicios" className= "m-[3rem] text-center flex flex-col items-center">
-      <h1 className='text-center text-4xl mb-8 font-bold'>Nuestros Servicios.</h1>
+      <div id="servicios" className= "m-[3rem]  flex flex-col items-center">
+      <h1 className=' text-4xl mb-8 font-bold'>Nuestros Servicios.</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-1 items-start justify-center">
           <div className="col-span-1 flex flex-col items-center mb-3">
             <Card image={images.macetas} />
-            <h1 className="m-5 text-2xl font-semibold">Venta de Macetas</h1>
-            <h3 className="text-center">
+            <h1 className="m-5 text-2xl font-semibold">Macetas</h1>
+            <h3 className="w-[85%] text-center text-pretty">
               Ofrecemos una amplia variedad de macetas, ideales para decorar cualquier espacio. 
               Desde macetas pequeñas para interiores hasta grandes jardineras para exteriores.
             </h3>
           </div>
           <div className="col-span-1 flex flex-col items-center mb-6">
             <Card image={images.plantas} />
-            <h1 className="m-5 text-2xl font-semibold">Alquiler de Plantas</h1>
-            <h3 className="text-center ">
-              Disponemos de plantas de todos los tamaños y tipos, perfectas para eventos, oficinas y hogares.
-              Nuestros expertos en jardinería aseguran que cada planta esté en perfectas condiciones.
+            <h1 className="m-5 text-2xl font-semibold">Plantas</h1>
+            <h3 className="w-[85%] text-center text-pretty">
+              Disponemos de plantas de todos los tamaños y tipos, perfectas para bodas, fiestas temáticas, conferencias entre otros eventos.
             </h3>
           </div>
           <div className="col-span-1 flex flex-col items-center">
             <Card image={images.mantenimiento} />
-            <h1 className="m-5 text-2xl font-semibold">Mantenimiento y Cuidado</h1>
-            <h3 className="text-center">
-              Además del alquiler, ofrecemos servicios de mantenimiento y cuidado de plantas. 
-              Nos encargamos de regar, podar y fertilizar para que siempre luzcan saludables y hermosas.
+            <h1 className="m-5 text-2xl font-semibold">Asesoramiento</h1>
+            <h3 className="w-[85%] text-center text-pretty">
+            Además del alquiler, ofrecemos servicios completos de asesoramiento. Nuestro equipo te guiará en la selección de las plantas adecuadas para tu espacio, asegurando que siempre luzcan perfectas.
             </h3>
           </div>
         </div>

@@ -13,7 +13,7 @@ const Historia = () => {
         <div className='content-center col-span-1'>
           <h1 className='mb-[1rem] text-5xl font-semibold '>¿Quiénes Somos?</h1>
           <h4 className='font-bold'>
-            Fundada en 2010, Eco Plantas es una empresa dedicada al alquiler de flores y plantas para eventos y espacios corporativos. Nuestro objetivo es transformar cualquier entorno en un oasis de verde, aportando frescura y elegancia a cada ocasión.<br/><br/>
+            Fundada en 2011, Eco Plantas es una empresa dedicada al alquiler de flores y plantas para eventos y espacios corporativos. Nuestro objetivo es transformar cualquier entorno en un oasis de verde, aportando frescura y elegancia a cada ocasión.<br/><br/>
             A lo largo de los años, hemos trabajado con una amplia variedad de clientes, desde bodas y eventos corporativos hasta decoraciones para oficinas. Nuestra pasión por las plantas y el diseño floral nos ha llevado a crear espacios únicos y memorables para cada uno de nuestros clientes.
           </h4>
         </div>
@@ -27,10 +27,10 @@ const Historia = () => {
         
         <div className="col-span-1 border-r-4 p-10 flex flex-col relative">
           <h1 className='content-center p-5 border-b-2 mb-9 w-[30%] sm:w-[36%] xl:w-[40%] absolute right-0	' ></h1>
-          <h1 className='content-center text-3xl p-5'>2012</h1>
+          <h1 className='content-center text-3xl p-5'>2011</h1>
           <Card image={image.img1} shadowOn={shadowOn} />
           <h3 className='content-center'>
-            En 2012, Eco Plantas comenzó su viaje con una pequeña colección de macetas y plantas. Nuestros primeros eventos incluyeron bodas y eventos locales, donde rápidamente ganamos una reputación por nuestra atención al detalle y pasión por las plantas.
+            En 2011, Eco Plantas comenzó su viaje con una pequeña colección de macetas y plantas. Nuestros primeros eventos incluyeron bodas y eventos locales, donde rápidamente ganamos una reputación por nuestra atención al detalle y pasión por las plantas.
           </h3>
         </div>
 
