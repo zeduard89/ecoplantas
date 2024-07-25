@@ -1,4 +1,4 @@
-const VITE_API_BASE_UR = import.meta.env.VITE_API_BASE_UR;
+const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export default async function obtenerDatosPosts() {
     // Inicializa un array para almacenar los datos de los posts
@@ -7,7 +7,7 @@ export default async function obtenerDatosPosts() {
     let plantas = [];
     let varios = [];
   
-    const response = await fetch({VITE_API_BASE_UR});
+    const response = await fetch(VITE_API_BASE_URL);
     const data = await response.json();
     
     // Expresión regular para extraer contenido entre <p> y </p>
