@@ -18,7 +18,7 @@ const Footer = () => {
   
   return (
     
-  <footer className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
+  <footer className="w-full bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 lg:text-left">
       
     <div className="md:h-[2rem] h-[3rem] flex items-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 justify-between">
       <a className='flex items-center' href="https://www.ecoplantas.com.ar/">
@@ -26,7 +26,7 @@ const Footer = () => {
           <h1 className='flex items-center font-semibold uppercase'>Eco Plantas</h1>
         </a>
       <div className='flex flew-row items-center'>
-          <span className='mr-2'>Mantengos contacto por medio de nuestras Redes:</span>
+          <span className='mr-2 hidden md:block'>Mantengos contacto por medio de nuestras Redes:</span>
           <a href={VITE_USER_INSTAGRAM} target="_blank" rel="noopener noreferrer">
             <img src={instagram} alt="instagram" className='h-[1.5rem] mr-2 hover:bg-red-300 border-1 rounded '/> 
           </a>

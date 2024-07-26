@@ -38,9 +38,7 @@ function App() {
             <Route path="/contacto" element={<Contacto/>} />
             <Route path="*" element={<NotFound />} />  {/* Ruta de captura para 404 */}
           </Routes>
-
           <Footer onScroll={handleScroll}/>
-
       </Router>
     </div>
   )
