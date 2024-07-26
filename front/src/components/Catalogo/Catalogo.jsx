@@ -1,5 +1,6 @@
 import React from 'react'
-import CardCatalogo from '../Card/CardCatalogo';
+import CardPlantas from '../Card/CardPlantas';
+import CardMacetas from '../Card/CardMacetas'
 import { useSelector} from 'react-redux';
 
 import Tablero from './Tablero';
@@ -23,41 +24,41 @@ const Catalogo = () => {
         </div>
 
         <div className="w-[50%] sm:w-[70%] flex flex-col justify-center	">
+          {/* Plantas */}
+          <div>
+            <h1 className="mt-16 text-3xl md:text-4xl lg:text-4xl text-white font-bold">PLANTAS</h1>
+            <div className='flex flex-row justify-center	flex-wrap'>
+              {catalogo.plantas.map((planta, index) => (
+              <div key={index} className="">
+                <CardPlantas {...planta} />
+              </div>
+              ))}
+            </div>
+          </div>
+
           {/* Macetas */}
           <div >    
-            <h1 className="mb-6 text-3xl md:text-4xl lg:text-4xl text-white font-bold">MACETAS</h1>
+            <h1 className="mb-6 mt-6 text-3xl md:text-4xl lg:text-4xl text-white font-bold">MACETAS</h1>
             <div className='flex flex-row justify-center	flex-wrap  '>
               {catalogo.macetas.map((maceta, index) => (
               <div key={index} className="">
-                <CardCatalogo {...maceta} />
+                <CardMacetas {...maceta} />
               </div>
               ))}
             </div>
           </div>        
           
           {/* Varios */}
-          <div>
-            <h1 className="mt-16 text-3xl md:text-4xl lg:text-4xl text-white font-bold">PLANTAS</h1>
-            <div className='flex flex-row justify-center	flex-wrap'>
-              {catalogo.plantas.map((planta, index) => (
-              <div key={index} className="">
-                <CardCatalogo {...planta} />
-              </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Varios */}
-          <div>
+          {/* <div>
             <h1 className="mt-16 text-3xl md:text-4xl lg:text-4xl text-white font-bold">VARIOS</h1>
             <div className='flex flex-row justify-center	flex-wrap'>
               {catalogo.varios.map((vario, index) => (
               <div key={index} className="">
-                <CardCatalogo {...vario} />
+                <CardPlantas {...vario} />
               </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
         </div> 
       </div>

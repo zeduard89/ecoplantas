@@ -18,19 +18,46 @@ export default async function obtenerDatosPosts() {
       let id = post.ID;
       let title = post.title;
       let content = '';
+      let list = {boca:'',base:'',altura:'',peso:'',capacidad:''};
       let category = '';
       let imgUrl = '';
       
-      // Recorta la info de content
-      const contentMatch = post.content.match(regex);
-      if (contentMatch) {
-        content = contentMatch[1];
-      }
 
-      // Obtiene la categoria de la imagen
+    // Extrae datos de la lista si la categoría es "macetas"-------------
+    
+    // Convertir categorías a una lista si es un objeto
+    const categoriesArray = Object.values(post.categories).map(cat => cat.name);
+
+    if (categoriesArray.includes("macetas")) {
+      const listItemMatches = post.content.match(/<li>([^<]*)<\/li>/g);
+      if (listItemMatches) {
+        listItemMatches.forEach(item => {
+          const [key, value] = item.replace(/<\/?li>/g, '').split(':');
+          if (key && value) {
+            const cleanedValue = value.trim();
+            if (key === 'Boca') list.boca = `${cleanedValue}`;
+            if (key === 'Base') list.base = `${cleanedValue}`;
+            if (key === 'Altura') list.altura = `${cleanedValue}`;
+            if (key === 'Peso') list.peso = `${cleanedValue}`;
+            if (key === 'Capacidad') list.capacidad = `${cleanedValue}`;
+          }
+        });
+      }
+      content = list;
+      }else{
+      //Extrae content si no es una maceta
+        const contentMatch = post.content.match(regex);
+        if (contentMatch) {
+          content = contentMatch[1];
+        }
+      }
+      //-----------------------
+
+
+      // Obtiene la categoria
       category = Object.keys(post.categories);
       if (category.length > 0) {
-        category = post.categories[category[category.length-1]].name; // Usa el primer attachment ID
+        category = post.categories[category[category.length-1]].name;
       }
       
       // Obtiene la URL de la imagen
