@@ -9,7 +9,8 @@ const CardMacetas = ({id, title, content,imgUrl }) => {
     }
 
     return (
-    <div className='text-center rounded-md p-7 h-[25rem] w-[15rem] md:w-[18rem] lg:w-[18rem]'>
+    <div className='relative text-center rounded-md p-7 h-[25rem] w-[15rem] md:w-[18rem] lg:w-[18rem]'>
+        <div className='absolute top-10 right-10 bg-green-700/30 border-2 border-gray-500 w-7 h-7 rounded'></div>
         <img src={imgUrl} alt='Imagen de la tarjeta' className='rounded-t-md w-full h-[65%] object-cover' />
         <h1 className='h-[2.5rem] text-white place-content-center bg-green-700 text-lg font-bold '>{title}</h1>
         {/* H3: Limited to 142 chars */}
