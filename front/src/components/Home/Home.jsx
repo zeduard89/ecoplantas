@@ -68,7 +68,7 @@ const Home = () => {
 
       {/* Services */}
       <div id="servicios" className= "m-[3rem]  flex flex-col items-center">
-      <h1 className=' text-4xl mb-8 font-bold text-center'>Nuestros Servicios.</h1>
+      <h1 className=' text-4xl mb-8 font-bold text-center'>Nuestros Servicios</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-1 items-start justify-center">
           <div className="col-span-1 flex flex-col items-center mb-3">
             <Card image={images.macetas} />
