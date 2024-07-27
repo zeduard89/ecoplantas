@@ -43,7 +43,6 @@ const Contacto = () => {
 
     emailjs.sendForm(emailJsServiceId, emailJsTemplateId, form.current, emailJsUserId)
       .then((result) => {
-        console.log(result.text);
         setSent(true); // Mostrar mensaje de confirmación
         form.current.reset(); // Limpiar el formulario
         setFormValues({
