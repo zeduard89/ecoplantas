@@ -25,7 +25,7 @@ const Catalogo = () => {
       <h1 className="text-5xl font-bold text-center mb-16">CATALOGO</h1>
       <div className="flex columns-2">
         {/* Tablero */}
-        <div className="w-[50%] md:w-[30%] lg:w-[30%] xl:w-[25%]">
+        <div className=" w-[50%] md:w-[30%] lg:w-[30%] xl:w-[20%]">
           <div className="sticky top-36 md:h-[35rem] lg:h-[35rem] mb-8 sm:mb-0">
             <h1 className="mb-10 text-2xl md:text-4xl lg:text-4xl text-white font-bold">
               PRESUPUESTO
