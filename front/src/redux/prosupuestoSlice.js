@@ -31,7 +31,6 @@ export const presupuestoSlice = createSlice({
     reducers: {
         increment: (state, action) => {
             const { formattedTitle } = action.payload;
-            console.log(state[formattedTitle])
             if (formattedTitle !== undefined) {
                 state[formattedTitle] = parseInt(state[formattedTitle]) + 1;
             }

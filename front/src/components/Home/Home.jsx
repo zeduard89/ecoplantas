@@ -20,7 +20,6 @@ const Home = () => {
   const fetchPosts = useCallback(async () => {
     try {
       const datosPosts = await obtenerDatosPosts();
-      console.log(datosPosts)
       dispatch(addCatalogo(datosPosts));
     } catch (err) {
       console.log("error",err);
