@@ -1,6 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { reset } from '../../redux/prosupuestoSlice';
+import emailjs from 'emailjs-com'; // Asegúrate de instalar emailjs-com si no lo has hecho
+
+// Variables de Entorno
+const emailJsServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const emailJsTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const emailJsUserId = import.meta.env.VITE_EMAILJS_USER_ID;
 
 const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -8,9 +14,27 @@ const capitalizeFirstLetter = (string) => {
 
 const Tablero = () => {
   const dispatch = useDispatch();
-  //const formattedTitle = title.toLowerCase().trim().replace(/\.$/, '').replace(/ /g, "");
   const count = useSelector((state) => state.presupuesto);
-  console.log(count)
+
+  const handleEmailSend = () => {
+    const templateParams = {
+      // Ajusta estos parámetros según tu plantilla de EmailJS
+      to_email: 'example@example.com', // Reemplaza con tu dirección de correo
+      subject: 'Detalles del pedido',
+      message: Object.entries(count).map(([clave, valor]) => `${capitalizeFirstLetter(clave)}: ${valor}`).join('\n'),
+    };
+
+    emailjs.send(emailJsServiceId, emailJsTemplateId, templateParams, emailJsUserId)
+      .then(response => {
+        console.log('Correo enviado con éxito', response);
+        // Limpiar el contenido del tablero después de enviar el correo
+        dispatch(reset());
+      })
+      .catch(error => {
+        console.error('Error al enviar el correo', error);
+      });
+  };
+
   return (
     <div className="bg-white text-black mx-8 mt-4 rounded-md h-[20rem] md:h-[30rem] w-[80%] overflow-y-auto">
       {Object.keys(count).length === 0 ? (
