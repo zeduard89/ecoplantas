@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    macetas: [],  // Cambiar a array vacío
-    plantas: [],  // Cambiar a array vacío
-    varios: []    // Cambiar a array vacío
+    macetas: [],  
+    plantas: [],  
+    varios: []    
 }; 
 
 export const catalogoSlice = createSlice({
@@ -13,9 +13,9 @@ export const catalogoSlice = createSlice({
     reducers: {
         addCatalogo: (state, action) => {
             const { macetas, plantas, varios } = action.payload;
-            state.macetas = macetas || []; // Asegúrate de que sean arrays
-            state.plantas = plantas || []; // Asegúrate de que sean arrays
-            state.varios = varios || [];   // Asegúrate de que sean arrays
+            state.macetas = macetas || []; 
+            state.plantas = plantas || []; 
+            state.varios = varios || [];   
         },
     }
 })
