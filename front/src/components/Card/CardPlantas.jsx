@@ -1,20 +1,21 @@
 import React  from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { increment, decrement, reset } from '../../redux/prosupuestoSlice';
+import { increment, decrement, reset } from '../../redux/catalogoSlice';
 
-const CardPlantas = ({ id, title, content, imgUrl }) => {
+const CardPlantas = ({ id, title, content, imgUrl, category }) => {
   const dispatch = useDispatch();
-  const formattedTitle = title.toLowerCase().trim().replace(/\.$/, '').replace(/ /g, "");
-  const count = useSelector((state) => state.presupuesto[formattedTitle]);
-  // Actualiza el componente o realiza una acción cuando 'count' cambia
 
+  //const formattedTitle = title.toLowerCase().trim().replace(/\.$/, '').replace(/ /g, "");
+  //(A)Busco el elemento del estado por categoria->(B) Busco por titulo
+  let element = useSelector((state) => state.catalogo[category]);
+  element = element?.find(item => item.title === title)
   
   const handleIncrement = () => {
-    dispatch(increment({ formattedTitle }));
+    dispatch(increment({ title, category}));
   };
 
   const handleDecrement = () => {
-    dispatch(decrement({ formattedTitle }));
+    dispatch(decrement({ title, category }));
   };
 
   if (!imgUrl) {
@@ -25,7 +26,7 @@ const CardPlantas = ({ id, title, content, imgUrl }) => {
   return (
     <div className='relative text-center rounded-md p-7 h-[25rem] w-[15rem] md:w-[18rem] lg:w-[18rem]'>
       <div className='absolute top-10 right-10 bg-white text-black border-2 border-gray-500 w-7 h-7 rounded flex items-center justify-center'>
-        {count}
+        {element.cuantity}
       </div>
       <img src={imgUrl} alt='Imagen de la tarjeta' className='rounded-t-md w-full h-[65%] object-cover' />
       <button 

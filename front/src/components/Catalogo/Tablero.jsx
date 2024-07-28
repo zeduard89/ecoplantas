@@ -9,13 +9,11 @@ const emailJsServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const emailJsTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_PRESUPUESTO;
 const emailJsUserId = import.meta.env.VITE_EMAILJS_USER_ID;
 
-const capitalizeFirstLetter = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
+
 
 const Tablero = () => {
   const dispatch = useDispatch();
-  const count = useSelector((state) => state.presupuesto);
+  const { plantas, macetas, varios } = useSelector((state) => state.catalogo);
 
   const form = useRef();
   const [sent, setSent] = useState(null);
@@ -41,15 +39,22 @@ const Tablero = () => {
       return;
     }
 
-    const filteredCount = Object.entries(count).filter(([clave, valor]) => valor > 0);
-    const message = filteredCount.map(([clave, valor]) => `${capitalizeFirstLetter(clave)}: ${valor}`).join('\n');
+    const filteredPlantas = Object.values(plantas).filter(planta => planta.cuantity > 0);
+    const filteredMacetas = Object.values(macetas).filter(maceta => maceta.cuantity > 0);
+    const filteredVarios = Object.values(varios).filter(vario => vario.cuantity > 0);
+
+    const message = [
+      ...filteredPlantas,
+      ...filteredMacetas,
+      ...filteredVarios
+    ].join('\n');
 
     const templateParams = {
       subject: 'Detalles del pedido',
-      user_name:formValues.user_name,
-      user_direccion:formValues.user_direccion,
-      user_telefono:formValues.user_telefono,
-      user_email:formValues.user_email,
+      user_name: formValues.user_name,
+      user_direccion: formValues.user_direccion,
+      user_telefono: formValues.user_telefono,
+      user_email: formValues.user_email,
       message: message,
     };
 
@@ -72,19 +77,34 @@ const Tablero = () => {
       });
   };
 
+  // Filtrado de plantas, macetas y varios, antes de usar en JSX
+  const filteredPlantas = Object.values(plantas).filter(planta => planta.cuantity > 0);
+  const filteredMacetas = Object.values(macetas).filter(maceta => maceta.cuantity > 0);
+  const filteredVarios = Object.values(varios).filter(vario => vario.cuantity > 0);
+
   return (
     <div>
-      <div className="ml-5 sm:ml-8 md:ml-8 lg:ml-8 xl:ml-8 bg-white text-black mt-4 rounded-md h-[15rem] md:h-[18rem] w-[80%] overflow-y-auto">
-        {Object.keys(count).length === 0 ? (
+      <div className="ml-5 sm:ml-8 md:ml-8 lg:ml-8 xl:ml-8 bg-white text-black mt-4 rounded-md h-[13rem] w-[80%] overflow-y-auto">
+        {(filteredPlantas.length === 0 && filteredMacetas.length === 0 && filteredVarios.length === 0) ? (
           <h1>Selecciona tu pedido</h1>
         ) : (
-          Object.entries(count)
-            .filter(([clave, valor]) => valor > 0)
-            .map(([clave, valor]) => (
-              <div key={clave} className="text-left pl-2 border-b">
-                <strong className='text-sm'>{capitalizeFirstLetter(clave)}:</strong> {valor}
+          <>
+            {filteredPlantas.map(planta => (
+              <div key={planta.title} className="text-left pl-2 border-b">
+                <strong className='text-sm'>{(planta.title)}:</strong> {planta.cuantity}
               </div>
-            ))
+            ))}
+            {filteredMacetas.map(maceta => (
+              <div key={maceta.title} className="text-left pl-2 border-b">
+                <strong className='text-sm'>{(maceta.title)}:</strong> {maceta.cuantity}
+              </div>
+            ))}
+            {filteredVarios.map(vario => (
+              <div key={vario.title} className="text-left pl-2 border-b">
+                <strong className='text-sm'>{(vario.title)}:</strong> {vario.cuantity}
+              </div>
+            ))}
+          </>
         )}
       </div>
       
@@ -135,7 +155,7 @@ const Tablero = () => {
               onChange={handleChange}
               className="px-2 py-1 bg-white w-[80%] text-gray-800 text-sm border-b border-gray-300 focus:border-green-600 outline-none rounded-md"
             />
-            {errors.user_email && <p className="flex justify-center  text-red-600 text-sm">{errors.user_email}</p>}
+            {errors.user_email && <p className="flex justify-center text-red-600 text-sm">{errors.user_email}</p>}
           </div>
         </div>
 
@@ -148,9 +168,10 @@ const Tablero = () => {
       {sent === false && <p className="mt-4 text-red-600">Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.</p>}
     </div>
   );
-}
+};
 
 export default Tablero;
+
 
 // import React, { useRef, useState } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
