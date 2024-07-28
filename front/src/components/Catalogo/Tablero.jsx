@@ -74,7 +74,7 @@ const Tablero = () => {
 
   return (
     <div>
-      <div className="ml-5 sm:ml-8 md:ml-8 lg:ml-8 xl:ml-8 bg-white text-black mt-4 rounded-md h-[18rem] md:h-[18rem] w-[80%] overflow-y-auto">
+      <div className="ml-5 sm:ml-8 md:ml-8 lg:ml-8 xl:ml-8 bg-white text-black mt-4 rounded-md h-[15rem] md:h-[18rem] w-[80%] overflow-y-auto">
         {Object.keys(count).length === 0 ? (
           <h1>Selecciona tu pedido</h1>
         ) : (

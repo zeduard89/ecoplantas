@@ -27,7 +27,7 @@ const Catalogo = () => {
         {/* Tablero */}
         <div className=" w-[50%] md:w-[30%] lg:w-[30%] xl:w-[20%]">
           <div className="sticky top-36 md:h-[35rem] lg:h-[35rem] mb-8 sm:mb-0">
-            <h1 className="mb-10 text-2xl lg:text-4xl lg:text-4xl text-white font-bold">
+            <h1 className="mb-5 text-2xl lg:text-4xl lg:text-4xl text-white font-bold">
               MI PRESUPUESTO
             </h1>
             <Tablero />
