@@ -67,7 +67,7 @@ const Home = () => {
 
       {/* Services */}
       <div id="servicios" className= "m-[3rem]  flex flex-col items-center">
-      <h1 className=' text-4xl mb-8 font-bold text-center'>Nuestros Servicios</h1>
+      <h1 className=' text-4xl mb-8 font-bold text-center'>Nuestro Servicio Incluye</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-1 items-start justify-center">
           <div className="col-span-1 flex flex-col items-center mb-3">
             <Card image={images.macetas} />
@@ -88,7 +88,7 @@ const Home = () => {
             <Card image={images.mantenimiento} />
             <h1 className="m-5 text-2xl font-semibold">Asesoramiento</h1>
             <h3 className="w-[85%] text-center text-pretty">
-            Además del alquiler, ofrecemos servicios completos de asesoramiento. Nuestro equipo te guiará en la selección de las plantas adecuadas para tu espacio, asegurando que siempre luzcan perfectas.
+            Ofrecemos servicios completos de asesoramiento. Nuestro equipo te guiará en la selección de las plantas adecuadas para tu espacio, asegurando que siempre luzcan perfectas.
             </h3>
           </div>
         </div>

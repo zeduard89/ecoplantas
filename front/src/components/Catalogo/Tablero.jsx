@@ -138,7 +138,7 @@ const Tablero = () => {
         </div>
 
         <button type="submit" className="mt-6 text-sm w-[80%] rounded-md px-6 py-1 bg-green-700 hover:bg-green-600 text-white">
-          Enviar Mensaje
+          A Cotizar
         </button>
       </form>
 
