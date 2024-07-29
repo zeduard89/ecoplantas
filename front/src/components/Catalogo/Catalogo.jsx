@@ -118,7 +118,7 @@ const Catalogo = () => {
             />
           </div>
 
-          {/* <div>
+          <div>
             <h1 className="mb-6 mt-6 text-3xl md:text-4xl lg:text-4xl text-white font-bold">
               MACETEROS
             </h1>
@@ -129,7 +129,7 @@ const Catalogo = () => {
                 </div>
               ))}
             </div>
-          </div> */}
+          </div>
 
         </div>
       </div>
