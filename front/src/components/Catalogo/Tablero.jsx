@@ -86,7 +86,7 @@ const Tablero = () => {
     <div>
       <div className="ml-5 sm:ml-8 md:ml-8 lg:ml-8 xl:ml-8 bg-white text-black mt-4 rounded-md h-[13rem] w-[80%] overflow-y-auto">
         {(filteredPlantas.length === 0 && filteredMacetas.length === 0 && filteredVarios.length === 0) ? (
-          <h1>Selecciona tu pedido</h1>
+          <h1 className='flex justify-center items-center	h-full w-full '>Selecciona tu pedido</h1>
         ) : (
           <>
             {filteredPlantas.map(planta => (
