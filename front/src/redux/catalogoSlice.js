@@ -13,7 +13,6 @@ export const catalogoSlice = createSlice({
     reducers: {
         addCatalogo: (state, action) => {
             const { macetas, plantas, varios } = action.payload;
-            console.log(plantas)
             state.macetas = macetas || []; 
             state.plantas = plantas || []; 
             state.varios = varios || [];   
