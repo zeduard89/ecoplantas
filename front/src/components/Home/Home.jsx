@@ -9,6 +9,7 @@ import Card from '../Card/Card';
 
 //Images
 import images from '../Utils/imges/cards/imageLoader'
+import imagesCarrousel from '../Utils/imges/carrousel/carrouselLoader'
 
 
 const Home = () => {
@@ -39,7 +40,7 @@ const Home = () => {
       
       {/* Carrusel */}
       <div className=' border-b-2	'>
-        <Carrousel/>
+        <Carrousel image={imagesCarrousel}/>
         <div className='bg-black/[.2] z-40 h-[40rem] w-full absolute inset-0 flex flex-col items-center justify-center  text-white'>
           <h1 className='text-center text-white text-7xl font-bold mb-2'>Eco Plantas</h1>
           <h2 className='text-center text-white text-3xl'>Alquiler de plantas para eventos.</h2>

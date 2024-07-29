@@ -13,7 +13,7 @@ const emailJsUserId = import.meta.env.VITE_EMAILJS_USER_ID;
 
 const Tablero = () => {
   const dispatch = useDispatch();
-  const { plantas, macetas, varios } = useSelector((state) => state.catalogo);
+  const { plantas, macetas, maceteros } = useSelector((state) => state.catalogo);
 
   const form = useRef();
   const [sent, setSent] = useState(null);
@@ -38,10 +38,10 @@ const Tablero = () => {
       setErrors(validationErrors);
       return;
     }
-
     const filteredPlantas = Object.values(plantas).filter(planta => planta.cuantity > 0);
     const filteredMacetas = Object.values(macetas).filter(maceta => maceta.cuantity > 0);
-    const filteredVarios = Object.values(varios).filter(vario => vario.cuantity > 0);
+    const filteredVarios = Object.values(maceteros).filter(vario => vario.cuantity > 0);
+
 
     const message = [
       ...filteredPlantas,
@@ -77,15 +77,15 @@ const Tablero = () => {
       });
   };
 
-  // Filtrado de plantas, macetas y varios, antes de usar en JSX
+  //Filtrado de plantas, macetas y varios, antes de usar en JSX
   const filteredPlantas = Object.values(plantas).filter(planta => planta.cuantity > 0);
   const filteredMacetas = Object.values(macetas).filter(maceta => maceta.cuantity > 0);
-  const filteredVarios = Object.values(varios).filter(vario => vario.cuantity > 0);
+  const filteredMaceteros = Object.values(maceteros).filter(maceteros => maceteros.cuantity > 0);
 
   return (
     <div>
       <div className="ml-5 sm:ml-8 md:ml-8 lg:ml-8 xl:ml-8 bg-white text-black mt-4 rounded-md h-[13rem] w-[80%] overflow-y-auto">
-        {(filteredPlantas.length === 0 && filteredMacetas.length === 0 && filteredVarios.length === 0) ? (
+        {(filteredPlantas.length === 0 && filteredMacetas.length === 0 && filteredMaceteros.length === 0) ? (
           <h1 className='flex justify-center items-center	h-full w-full '>Selecciona tu pedido</h1>
         ) : (
           <>
@@ -99,9 +99,9 @@ const Tablero = () => {
                 <strong className='text-sm'>{(maceta.title)}:</strong> {maceta.cuantity}
               </div>
             ))}
-            {filteredVarios.map(vario => (
-              <div key={vario.title} className="text-left pl-2 border-b">
-                <strong className='text-sm'>{(vario.title)}:</strong> {vario.cuantity}
+            {filteredMaceteros.map(maceteros => (
+              <div key={maceteros.title} className="text-left pl-2 border-b">
+                <strong className='text-sm'>{(maceteros.title)}:</strong> {maceteros.cuantity}
               </div>
             ))}
           </>

@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     macetas: [],  
     plantas: [],  
-    varios: []    
+    maceteros: [],
+
 }; 
 
 export const catalogoSlice = createSlice({
@@ -12,10 +13,10 @@ export const catalogoSlice = createSlice({
     // Create reducers
     reducers: {
         addCatalogo: (state, action) => {
-            const { macetas, plantas, varios } = action.payload;
+            const { macetas, plantas, maceteros } = action.payload;
             state.macetas = macetas || []; 
             state.plantas = plantas || []; 
-            state.varios = varios || [];   
+            state.maceteros = maceteros || [];   
         },
         increment: (state, action) => {
             const { title, category } = action.payload;
@@ -37,9 +38,10 @@ export const catalogoSlice = createSlice({
             return initialState;
         },
         setPresupuesto: (state, action) => {
-            const { macetas, plantas } = action.payload;
+            const { macetas, plantas, maceteros } = action.payload;
             state.pedidoMacetas = macetas || []; 
-            state.pedidoPlantas = plantas || []; 
+            state.pedidoPlantas = plantas || [];
+            state.pedidosMaceteros = maceteros || [];
         },
     }
 })

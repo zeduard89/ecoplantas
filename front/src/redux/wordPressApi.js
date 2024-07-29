@@ -5,6 +5,7 @@ export default async function obtenerDatosPosts() {
     let resultados = [];
     let macetas = [];
     let plantas = [];
+    let maceteros = [];
     let varios = [];
 
     // Función para obtener datos de todas las páginas
@@ -101,17 +102,16 @@ export default async function obtenerDatosPosts() {
             case "plantas":
                 plantas.push(element);
                 break;
-            case "varios":
-                varios.push(element);
+            case "maceteros":
+                maceteros.push(element);
                 break;
             default:
                 console.log("Categoría no reconocida", element);
                 break;
         }
     });
-    console.log(macetas,plantas)
 
-    return { macetas, plantas, varios };
+    return { macetas, plantas, maceteros };
 }
 
 

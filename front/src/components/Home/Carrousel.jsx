@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import image from '../Utils/imges/carrousel/carrouselLoader'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -13,16 +12,20 @@ import './carrousel.css';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 
-const Carrousel = () => {
+const Carrousel = ({image}) => {
    
 
 
-    const progressCircle = useRef(null);
-    const progressContent = useRef(null);
-    const onAutoplayTimeLeft = (s, time, progress) => {
-      progressCircle.current.style.setProperty('--progress', 1 - progress);
-      progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-    };
+  const progressCircle = useRef(null);
+  const progressContent = useRef(null);
+  const onAutoplayTimeLeft = (s, time, progress) => {
+    progressCircle.current.style.setProperty('--progress', 1 - progress);
+    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+  };
+
+  // Check if image is an array or an object
+  const imageValues = Array.isArray(image) ? image : Object.values(image);
+
 
 
   return (
@@ -43,11 +46,12 @@ const Carrousel = () => {
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper"
       >
-                
-        <SwiperSlide><img src={image.img1} alt="Imagen1" /></SwiperSlide>
-        <SwiperSlide><img src={image.img2} alt="Imagen2" /></SwiperSlide>
-        <SwiperSlide><img src={image.img3} alt="Imagen3" /></SwiperSlide>
-        <SwiperSlide><img src={image.img4} alt="Imagen4" /></SwiperSlide>
+      
+      {imageValues.map((imgSrc, index) => (
+        <SwiperSlide key={index}>
+          <img src={imgSrc} alt={`Imagen ${index + 1}`} />
+        </SwiperSlide>
+      ))}
         
         <div className="autoplay-progress" slot="container-end">
           <svg viewBox="0 0 48 48" ref={progressCircle}>

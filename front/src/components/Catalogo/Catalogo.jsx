@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import CardPlantas from '../Card/CardPlantas';
 import CardMacetas from '../Card/CardMacetas';
+import CardMaceteros from '../Card/CardMaceteros';
 import { useSelector } from 'react-redux';
 import medCuad from '../Utils/imges/macetas/medidasCuadradas.jpg';
 import medRec from '../Utils/imges/macetas/medidasRectangulares.jpg';
@@ -41,6 +42,14 @@ const Catalogo = () => {
       setIsLoading(false);
     }
   }, [catalogo, fetchPosts]);
+
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
+
+  const handleOverlayClick = () => {
+    setSelectedImage(null);
+  };
 
   if (isLoading) {
     return (
@@ -108,10 +117,24 @@ const Catalogo = () => {
               onClick={() => handleImageClick('medCuad')}
             />
           </div>
+
+          <div>
+            <h1 className="mb-6 mt-6 text-3xl md:text-4xl lg:text-4xl text-white font-bold">
+              MACETEROS
+            </h1>
+            <div className="flex flex-row justify-center flex-wrap">
+              {catalogo.maceteros.map((macetero, index) => (
+                <div key={index}>
+                  <CardMaceteros {...macetero} />
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
 
-      {/* Overlay for enlarged image */}
+      {/* zoom Img */}
       {selectedImage && (
         <div
           className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-70"
@@ -132,6 +155,7 @@ const Catalogo = () => {
           </div>
         </div>
       )}
+
     </div>
   );
 };

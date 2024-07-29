@@ -27,47 +27,36 @@ const Historia = () => {
         
         <div className="col-span-1 border-r-4 p-10 flex flex-col  relative">
           <h1 className='content-center p-5 border-b-2 mb-9 w-[30%] sm:w-[36%] xl:w-[40%] absolute right-0	' ></h1>
-          <h1 className='content-center text-3xl p-5'>2011</h1>
+          <h1 className='content-center text-2xl p-5'>2024/--</h1>
            <div className='hidden sm:block '>
            <Card image={image.img1} shadowOn={shadowOn}/>
            </div>
-          <h3 className='content-center'>
-            En 2011, Eco Plantas comenzó su viaje con una pequeña colección de macetas y plantas. Nuestros primeros eventos incluyeron bodas y eventos locales, donde rápidamente ganamos una reputación por nuestra atención al detalle y pasión por las plantas.
-          </h3>
         </div>
 
         <div className="col-span-1 p-10 pt-[100%] flex flex-col relative">
           <h1 className='content-center p-5 border-b-2 mb-9  absolute -left-1 w-[35%] sm:w-[40%]	' ></h1>
-          <h1 className='content-center text-3xl p-5'>2013</h1>
+          <h1 className='content-center text-3xl p-5'>2020/--</h1>
           <div className='hidden sm:block'>
             <Card image={image.img2} shadowOn={shadowOn} />
           </div>
-          <h3 className='content-center'>
-            En 2013, ampliamos nuestra oferta de servicios para incluir decoraciones para oficinas y eventos corporativos. Nuestro equipo de diseñadores florales se unió a la empresa, trayendo consigo nuevas ideas y una mayor variedad de productos.
-          </h3>
         </div>
 
         <div className="col-span-1 border-r-4 p-10 flex flex-col relative">
           <h1 className='content-center p-5 border-b-2 mb-9 w-[30%] sm:w-[36%] xl:w-[40%] absolute right-0	' ></h1>
-          <h1 className='content-center text-3xl p-5'>2014</h1>
+          <h1 className='content-center text-3xl p-5'>2015--</h1>
           <div className='hidden sm:block'>
             <Card image={image.img3} shadowOn={shadowOn} />
           </div>
-          <h3 className='content-center'>
-            Durante 2014, lanzamos una nueva línea de plantas exóticas y macetas personalizadas. Nuestro compromiso con la sostenibilidad también se fortaleció, comenzando a ofrecer opciones de reciclaje y compostaje para nuestras decoraciones.
-          </h3>
         </div>
 
         <div className="col-span-1 p-10 pt-[100%] flex flex-col relative">
           <h1 className='content-center p-5 border-b-2 mb-9  absolute -left-1 w-[35%] sm:w-[40%]	' ></h1>
-          <h1 className='content-center text-3xl p-5'>2015</h1>
+          <h1 className='content-center text-3xl p-5'>2011/--</h1>
           <div className='hidden sm:block'>
             <Card image={image.img4} shadowOn={shadowOn} />
           </div>
-          <h3 className='pb-16 content-center'>
-            En 2015, celebramos nuestro quinto aniversario con una gran fiesta y una exposición de nuestras decoraciones más destacadas. La empresa continuó creciendo, estableciendo alianzas con proveedores internacionales y expandiendo nuestra presencia en eventos de gran escala.
-          </h3>
         </div>
+
       </div>
       <h1 className="col-span-1 w-fit mx-auto mb-[5rem] text-transparent bg-gray-300 border-2 rounded-full text-sm text-center">
         oo
