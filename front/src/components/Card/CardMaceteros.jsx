@@ -28,13 +28,12 @@ const CardMaceteros = ({maceteros }) => {
         imgArray.push(element.imgUrl);
       }
     });
-    console.log(maceteros20Count)
 
     return (
 
     <div className='relative text-center rounded-md p-7 h-full w-full'>
         
-        <div className='absolute z-50 top-10 right-10 font-bold bg-green-700/30 border-2 border-gray-500 w-7 h-7 rounded flex items-center justify-center'>
+        <div className='absolute z-50 top-10 right-10 font-bold bg-green-700/80 border-2 border-gray-500 w-7 h-7 rounded flex items-center justify-center'>
             {title.includes('20')?maceteros20Count:maceteros30Count}
         </div>
         <div className='h-[20rem] rounded-t-md object-cover	 '>
@@ -56,7 +55,10 @@ const CardMaceteros = ({maceteros }) => {
       >
         -
       </button>
-        <h1 className='h-[2.5rem] text-white place-content-center bg-green-700 text-lg font-bold '>Macetas 20 x 30</h1>
+
+        <h1 className='h-[2.5rem] text-white place-content-center bg-green-700 text-lg font-bold '>
+        {title.includes("20")?('Macetas 20x20x1Mts'):('Macetas 20x30x1Mts')}
+        </h1>
         {/* H3: Limited to 142 chars */}
         <div className=' bg-green-700/20 rounded-b-md text-[0.79rem] md:text-sm lg:text-sm overflow-hidden text-ellipsis text-left p-2'>
             <p>Base: 20 cm</p>
