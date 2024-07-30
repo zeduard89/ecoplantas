@@ -4,6 +4,8 @@ const initialState = {
     macetas: [],  
     plantas: [],  
     maceteros: [],
+    maceteros20:0,
+    maceteros30:0,
 
 }; 
 
@@ -34,6 +36,22 @@ export const catalogoSlice = createSlice({
                 );
             }
         },
+        incrementMaceterosL: (state, action) => {
+            const { title } = action.payload;
+            if (title !== undefined && title.includes('20')) {
+                state.maceteros20 += 1;
+            }else if(title !== undefined && title.includes('30')){
+                state.maceteros30 += 1;
+            }
+        },
+        decrementMaceterosL: (state, action) => {
+            const { title } = action.payload;
+            if (title !== undefined && title.includes('20') && state.maceteros20 > 0) {
+                state.maceteros20 -= 1;
+            }else if(title !== undefined && title.includes('30') && state.maceteros30 > 0){
+                state.maceteros30 -= 1;
+            }
+        },
         reset: (state) => {
             return initialState;
         },
@@ -46,6 +64,6 @@ export const catalogoSlice = createSlice({
     }
 })
 
-export const { addCatalogo, increment, decrement, reset, setPresupuesto } = catalogoSlice.actions;
+export const { addCatalogo, increment, decrement, incrementMaceterosL, decrementMaceterosL, reset, setPresupuesto } = catalogoSlice.actions;
 export default catalogoSlice.reducer;
 

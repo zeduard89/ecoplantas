@@ -7,7 +7,7 @@ import rootReducer from './rootReducer'; // Importa el rootReducer
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['catalogo','presupuesto'], // Lista blanca de reductores que quieres persistir
+  whitelist: ['catalogo'], // Lista blanca de reductores que quieres persistir
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

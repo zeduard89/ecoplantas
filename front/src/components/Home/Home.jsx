@@ -3,6 +3,7 @@ import React, { useEffect, useCallback } from 'react';
 import { useDispatch } from "react-redux";
 import obtenerDatosPosts from '../../redux/wordPressApi'
 import { addCatalogo } from '../../redux/catalogoSlice';
+import { reset } from '../../redux/catalogoSlice';
 //Components
 import Carrousel from './Carrousel';
 import Card from '../Card/Card';
@@ -29,6 +30,7 @@ const Home = () => {
   }, [dispatch]);
 
   useEffect(() => {
+    dispatch(reset())
     fetchPosts();
   }, [fetchPosts]);
 
@@ -40,7 +42,9 @@ const Home = () => {
       
       {/* Carrusel */}
       <div className=' border-b-2	'>
-        <Carrousel image={imagesCarrousel}/>
+        <div className='h-[40rem]'>
+          <Carrousel image={imagesCarrousel}/>
+        </div>
         <div className='bg-black/[.2] z-40 h-[40rem] w-full absolute inset-0 flex flex-col items-center justify-center  text-white'>
           <h1 className='text-center text-white text-7xl font-bold mb-2'>Eco Plantas</h1>
           <h2 className='text-center text-white text-3xl'>Alquiler de plantas para eventos.</h2>

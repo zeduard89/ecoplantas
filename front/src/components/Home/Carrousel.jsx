@@ -31,7 +31,7 @@ const Carrousel = ({image}) => {
   return (
     <>
       <Swiper
-        spaceBetween={30}
+        spaceBetween={5}
         centeredSlides={true}
         speed={2000}
         autoplay={{
@@ -46,10 +46,9 @@ const Carrousel = ({image}) => {
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper"
       >
-      
       {imageValues.map((imgSrc, index) => (
         <SwiperSlide key={index}>
-          <img src={imgSrc} alt={`Imagen ${index + 1}`} />
+          <img src={imgSrc} alt={`Imagen ${index + 1}`}/>
         </SwiperSlide>
       ))}
         

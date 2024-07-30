@@ -35,13 +35,22 @@ const Catalogo = () => {
     if (
       (catalogo.macetas && catalogo.macetas.length === 0) &&
       (catalogo.plantas && catalogo.plantas.length === 0) &&
-      (catalogo.varios && catalogo.varios.length === 0)
+      (catalogo.maceteros && catalogo.maceteros.length === 0)
     ) {
       fetchPosts();
     } else {
       setIsLoading(false);
     }
   }, [catalogo, fetchPosts]);
+
+  //Filtro los maceteros 20x20 y 20x30
+  const maceteros20 = catalogo.maceteros.filter(macetero => {
+    return macetero.title.includes('20');
+  });
+  const maceteros30 = catalogo.maceteros.filter(macetero => {
+    return macetero.title.includes('30');
+  });
+
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
@@ -122,12 +131,9 @@ const Catalogo = () => {
             <h1 className="mb-6 mt-6 text-3xl md:text-4xl lg:text-4xl text-white font-bold">
               MACETEROS
             </h1>
-            <div className="flex flex-row justify-center flex-wrap">
-              {catalogo.maceteros.map((macetero, index) => (
-                <div key={index}>
-                  <CardMaceteros {...macetero} />
-                </div>
-              ))}
+            <div className="flex flex-row justify-center flex-wrap"> 
+              <CardMaceteros maceteros={maceteros20} />
+              <CardMaceteros maceteros={maceteros30} />
             </div>
           </div>
 
