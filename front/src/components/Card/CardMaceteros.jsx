@@ -57,7 +57,7 @@ const CardMaceteros = ({maceteros }) => {
       </button>
 
         <h1 className='h-[2.5rem] text-white place-content-center bg-green-700 text-lg font-bold '>
-        {title.includes("20")?('Macetas 20x20x1Mts'):('Macetas 20x30x1Mts')}
+        {title.includes("20")?('20 x 20 x 1'):('20 x 30 x 1')}
         </h1>
         {/* H3: Limited to 142 chars */}
         <div className=' bg-green-700/20 rounded-b-md text-[0.79rem] md:text-sm lg:text-sm overflow-hidden text-ellipsis text-left p-2'>

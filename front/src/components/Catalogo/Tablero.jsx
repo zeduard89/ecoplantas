@@ -13,7 +13,9 @@ const emailJsUserId = import.meta.env.VITE_EMAILJS_USER_ID;
 
 const Tablero = () => {
   const dispatch = useDispatch();
-  const { plantas, macetas, maceteros } = useSelector((state) => state.catalogo);
+  const { plantas, macetas  } = useSelector((state) => state.catalogo);
+  const maceteros20 = useSelector((state)=> state.catalogo.maceteros20);
+  const maceteros30 = useSelector((state)=>state.catalogo.maceteros30);
 
   const form = useRef();
   const [sent, setSent] = useState(null);
@@ -40,14 +42,16 @@ const Tablero = () => {
     }
     const filteredPlantas = Object.values(plantas).filter(planta => planta.cuantity > 0);
     const filteredMacetas = Object.values(macetas).filter(maceta => maceta.cuantity > 0);
-    const filteredVarios = Object.values(maceteros).filter(vario => vario.cuantity > 0);
+    const maceteros20Text = maceteros20 > 0 ? `Maceteros 20 x 20 x 1 Mts: ${maceteros20}` : '';
+    const maceteros30Text = maceteros30 > 0 ? `Maceteros 20 x 30 x 1 Mts: ${maceteros30}` : '';
 
 
     const message = [
       ...filteredPlantas,
       ...filteredMacetas,
-      ...filteredVarios
-    ].join('\n');
+      maceteros20Text,
+      maceteros30Text
+    ].filter(Boolean).join('\n');
 
     const templateParams = {
       subject: 'Detalles del pedido',
@@ -80,32 +84,33 @@ const Tablero = () => {
   //Filtrado de plantas, macetas y varios, antes de usar en JSX
   const filteredPlantas = Object.values(plantas).filter(planta => planta.cuantity > 0);
   const filteredMacetas = Object.values(macetas).filter(maceta => maceta.cuantity > 0);
-  const filteredMaceteros = Object.values(maceteros).filter(maceteros => maceteros.cuantity > 0);
 
   return (
     <div>
-      <div className="ml-5 sm:ml-8 md:ml-8 lg:ml-8 xl:ml-8 bg-white text-black mt-4 rounded-md h-[13rem] w-[80%] overflow-y-auto">
-        {(filteredPlantas.length === 0 && filteredMacetas.length === 0 && filteredMaceteros.length === 0) ? (
+      <div className="text-left pl-2 ml-5 sm:ml-8 md:ml-8 lg:ml-8 xl:ml-8 bg-white text-black mt-4 rounded-md h-[13rem] w-[80%] overflow-y-auto">
+        {(filteredPlantas.length === 0 && filteredMacetas.length === 0 && maceteros20 && maceteros30) ? (
           <h1 className='flex justify-center items-center	h-full w-full '>Selecciona tu pedido</h1>
         ) : (
           <>
-            {filteredPlantas.map(planta => (
-              <div key={planta.title} className="text-left pl-2 border-b">
+            {filteredPlantas.map((planta, index) => (
+              <div key={`${planta.title}-${index}`} className=" border-b">
                 <strong className='text-sm'>{(planta.title)}:</strong> {planta.cuantity}
               </div>
             ))}
-            {filteredMacetas.map(maceta => (
-              <div key={maceta.title} className="text-left pl-2 border-b">
+            {filteredMacetas.map((maceta, index) => (
+              <div key={`${maceta.title}-${index}`} className=" border-b">
                 <strong className='text-sm'>{(maceta.title)}:</strong> {maceta.cuantity}
               </div>
             ))}
-            {filteredMaceteros.map(maceteros => (
-              <div key={maceteros.title} className="text-left pl-2 border-b">
-                <strong className='text-sm'>{(maceteros.title)}:</strong> {maceteros.cuantity}
-              </div>
-            ))}
+        <div className=" border-b">
+          {(maceteros20 != '')?(<div><strong className='text-sm'>Macetero 20x20: </strong>{maceteros20}</div>):('')}
+        </div>
+        <div className=" border-b">
+          {(maceteros30 != '')?(<div><strong className='text-sm'>Macetero 20x30: </strong>{maceteros30}</div>):('')}
+        </div>
           </>
         )}
+
       </div>
       
       <form ref={form} onSubmit={handleEmailSend}>

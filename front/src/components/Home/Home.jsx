@@ -3,7 +3,8 @@ import React, { useEffect, useCallback } from 'react';
 import { useDispatch } from "react-redux";
 import obtenerDatosPosts from '../../redux/wordPressApi'
 import { addCatalogo } from '../../redux/catalogoSlice';
-import { reset } from '../../redux/catalogoSlice';
+import { useSelector } from 'react-redux';
+
 //Components
 import Carrousel from './Carrousel';
 import Card from '../Card/Card';
@@ -15,14 +16,15 @@ import imagesCarrousel from '../Utils/imges/carrousel/carrouselLoader'
 
 const Home = () => {
 
+  const catalogo = useSelector((state) => state.catalogo);
   //get catalogo from  wordpress y update redux
   const dispatch = useDispatch();
+
 
 
   const fetchPosts = useCallback(async () => {
     try {
       const datosPosts = await obtenerDatosPosts();
-      //console.log(datosPosts)
       dispatch(addCatalogo(datosPosts));
     } catch (err) {
       console.log("error",err);
@@ -30,9 +32,11 @@ const Home = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(reset())
-    fetchPosts();
-  }, [fetchPosts]);
+    // Verifica si el catálogo está vacío antes de hacer la solicitud
+    if (catalogo.plantas.length === 0 && catalogo.macetas.length === 0 && catalogo.maceteros.length === 0) {
+      fetchPosts();
+    }
+  }, [fetchPosts, catalogo.plantas.length, catalogo.macetas.length, catalogo.maceteros.length]);
 
 
 
