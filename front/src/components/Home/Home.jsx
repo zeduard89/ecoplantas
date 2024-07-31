@@ -1,4 +1,4 @@
-import React, { useEffect,useState, useCallback } from 'react';
+import React, { useEffect, useCallback } from 'react';
 //Update catalogo
 import { useDispatch } from "react-redux";
 import obtenerDatosPosts from '../../redux/wordPressApi'
@@ -17,7 +17,6 @@ import imagesCarrousel from '../Utils/imges/carrousel/carrouselLoader'
 const Home = () => {
 
   const catalogo = useSelector((state) => state.catalogo);
-  const [isLoading, setIsLoading] = useState(true);
   //get catalogo from  wordpress y update redux
   const dispatch = useDispatch();
 
@@ -29,8 +28,6 @@ const Home = () => {
       dispatch(addCatalogo(datosPosts));
     } catch (err) {
       console.log("Error", err);
-    } finally {
-      setIsLoading(false);
     }
   }, [dispatch]);
 
@@ -41,20 +38,8 @@ const Home = () => {
         catalogo.maceteros.length === 0
         ) {
       fetchPosts();
-    } else {
-      setIsLoading(false);
     }
   }, [fetchPosts, catalogo]);
-
-    if (isLoading) {
-    return (
-      <div className="loading-container">
-        <p className="h-[60rem] pt-[10rem] text-4xl loading-text flex justify-center">Cargando...</p>
-        {/* Puedes agregar más elementos visuales aquí, como un spinner */}
-      </div>
-    );
-  }
-
 
 
   return (
