@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect,useState, useCallback } from 'react';
 //Update catalogo
 import { useDispatch } from "react-redux";
 import obtenerDatosPosts from '../../redux/wordPressApi'
@@ -17,6 +17,7 @@ import imagesCarrousel from '../Utils/imges/carrousel/carrouselLoader'
 const Home = () => {
 
   const catalogo = useSelector((state) => state.catalogo);
+  const [isLoading, setIsLoading] = useState(true);
   //get catalogo from  wordpress y update redux
   const dispatch = useDispatch();
 
@@ -27,17 +28,32 @@ const Home = () => {
       const datosPosts = await obtenerDatosPosts();
       dispatch(addCatalogo(datosPosts));
     } catch (err) {
-      console.log("error",err);
+      console.log("Error", err);
+    } finally {
+      setIsLoading(false);
     }
   }, [dispatch]);
 
-  useEffect(() => {
-    // Verifica si el catálogo está vacío antes de hacer la solicitud
-    if (catalogo.plantas.length === 0 && catalogo.macetas.length === 0 && catalogo.maceteros.length === 0) {
-      fetchPosts();
-    }
-  }, [fetchPosts, catalogo.plantas.length, catalogo.macetas.length, catalogo.maceteros.length]);
 
+  useEffect(() => {
+    if (catalogo.plantas.length === 0 && 
+        catalogo.macetas.length === 0 && 
+        catalogo.maceteros.length === 0
+        ) {
+      fetchPosts();
+    } else {
+      setIsLoading(false);
+    }
+  }, [fetchPosts, catalogo]);
+
+    if (isLoading) {
+    return (
+      <div className="loading-container">
+        <p className="h-[60rem] pt-[10rem] text-4xl loading-text flex justify-center">Cargando...</p>
+        {/* Puedes agregar más elementos visuales aquí, como un spinner */}
+      </div>
+    );
+  }
 
 
 

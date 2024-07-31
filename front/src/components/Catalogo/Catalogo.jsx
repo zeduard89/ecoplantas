@@ -19,7 +19,23 @@ const Catalogo = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const fetchPosts = useCallback(async () => {
+    try {
+      const datosPosts = await obtenerDatosPosts();
+      dispatch(addCatalogo(datosPosts));
+    } catch (err) {
+      console.log("Error", err);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [dispatch]);
 
+  useEffect(() => {
+
+    fetchPosts();
+  
+  }, [fetchPosts]);
+//----------------------Modificar al terminar--------------------------------
   // const fetchPosts = useCallback(async () => {
   //   try {
   //     const datosPosts = await obtenerDatosPosts();
@@ -36,6 +52,8 @@ const Catalogo = () => {
   //     (catalogo.macetas && catalogo.macetas.length === 0) &&
   //     (catalogo.plantas && catalogo.plantas.length === 0) &&
   //     (catalogo.maceteros && catalogo.maceteros.length === 0)
+  //      catalogo.maceteros20 === 0 &&
+  //      catalogo.maceteros30 === 0
   //   ) {
   //     fetchPosts();
   //   } else {
@@ -43,23 +61,17 @@ const Catalogo = () => {
   //   }
   // }, [catalogo, fetchPosts]);
 
-  //--------------------Desarrollo--------------------------------------
+  // if (isLoading) {
+  //   return (
+  //     <div className="loading-container">
+  //       <p className="h-[60rem] pt-[10rem] text-4xl loading-text flex justify-center">Cargando...</p>
+  //       {/* Puedes agregar más elementos visuales aquí, como un spinner */}
+  //     </div>
+  //   );
+  // }
+  //--------------------Carga de imagenes--------------------------------------
 
-  const fetchPosts = useCallback(async () => {
-    try {
-      const datosPosts = await obtenerDatosPosts();
-      dispatch(addCatalogo(datosPosts));
-    } catch (err) {
-      console.log("Error", err);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [dispatch]);
 
-  useEffect(() => {
-    fetchPosts();
-    console.log('hola')
-  }, [fetchPosts]);
 
   //Filtro los maceteros 20x20 y 20x30
   const maceteros20 = catalogo.maceteros.filter(macetero => {
@@ -78,16 +90,6 @@ const Catalogo = () => {
     setSelectedImage(null);
   };
 
-  //-------------------------------------------------------
-
-  // if (isLoading) {
-  //   return (
-  //     <div className="loading-container">
-  //       <p className="h-[60rem] pt-[10rem] text-4xl loading-text flex justify-center">Cargando...</p>
-  //       {/* Puedes agregar más elementos visuales aquí, como un spinner */}
-  //     </div>
-  //   );
-  // }
 
   return (
     <div className="my-[6rem] text-center">
