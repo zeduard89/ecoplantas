@@ -32,9 +32,9 @@ const Home = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (catalogo.plantas.length == []&& 
-        catalogo.macetas.length == [] && 
-        catalogo.maceteros.length == []
+    if (catalogo.plantas.length === 0 && 
+        catalogo.macetas.length === 0 && 
+        catalogo.maceteros.length === 0
         ) {
       fetchPosts();
     }
