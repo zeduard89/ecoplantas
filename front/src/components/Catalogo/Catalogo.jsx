@@ -19,23 +19,6 @@ const Catalogo = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchPosts = useCallback(async () => {
-    try {
-      const datosPosts = await obtenerDatosPosts();
-      dispatch(addCatalogo(datosPosts));
-    } catch (err) {
-      console.log("Error", err);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [dispatch]);
-
-  useEffect(() => {
-
-    fetchPosts();
-  
-  }, [fetchPosts]);
-//----------------------Modificar al terminar--------------------------------
   // const fetchPosts = useCallback(async () => {
   //   try {
   //     const datosPosts = await obtenerDatosPosts();
@@ -48,27 +31,44 @@ const Catalogo = () => {
   // }, [dispatch]);
 
   // useEffect(() => {
-  //   if (
-  //     (catalogo.macetas && catalogo.macetas.length === 0) &&
-  //     (catalogo.plantas && catalogo.plantas.length === 0) &&
-  //     (catalogo.maceteros && catalogo.maceteros.length === 0)
-  //      catalogo.maceteros20 === 0 &&
-  //      catalogo.maceteros30 === 0
-  //   ) {
-  //     fetchPosts();
-  //   } else {
-  //     setIsLoading(false);
-  //   }
-  // }, [catalogo, fetchPosts]);
 
-  // if (isLoading) {
-  //   return (
-  //     <div className="loading-container">
-  //       <p className="h-[60rem] pt-[10rem] text-4xl loading-text flex justify-center">Cargando...</p>
-  //       {/* Puedes agregar más elementos visuales aquí, como un spinner */}
-  //     </div>
-  //   );
-  // }
+  //   fetchPosts();
+  
+  // }, [fetchPosts]);
+//----------------------Modificar al terminar--------------------------------
+  const fetchPosts = useCallback(async () => {
+    try {
+      const datosPosts = await obtenerDatosPosts();
+      dispatch(addCatalogo(datosPosts));
+    } catch (err) {
+      console.log("Error", err);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (
+      (catalogo.macetas && catalogo.macetas.length === 0) &&
+      (catalogo.plantas && catalogo.plantas.length === 0) &&
+      (catalogo.maceteros && catalogo.maceteros.length === 0)
+      (catalogo.maceteros20 === 0) &&
+       catalogo.maceteros30 === 0
+    ) {
+      fetchPosts();
+    } else {
+      setIsLoading(false);
+    }
+  }, [catalogo, fetchPosts]);
+
+  if (isLoading) {
+    return (
+      <div className="loading-container">
+        <p className="h-[60rem] pt-[10rem] text-4xl loading-text flex justify-center">Cargando...</p>
+        {/* Puedes agregar más elementos visuales aquí, como un spinner */}
+      </div>
+    );
+  }
   //--------------------Carga de imagenes--------------------------------------
 
 
@@ -94,18 +94,8 @@ const Catalogo = () => {
   return (
     <div className="my-[6rem] text-center">
       <h1 className="text-5xl font-bold text-center mb-16">CATALOGO</h1>
-      <div className="flex columns-2">
-        {/* Tablero */}
-        <div className=" w-[50%] md:w-[30%] lg:w-[30%] xl:w-[20%]">
-          <div className="sticky top-36 md:h-[35rem] lg:h-[35rem] mb-8 sm:mb-0">
-            <h1 className="mb-5 text-2xl lg:text-4xl lg:text-4xl text-white font-bold">
-              MI PRESUPUESTO
-            </h1>
-            <Tablero />
-          </div>
-        </div>
-
-        <div className="w-[50%] sm:w-[70%] flex flex-col justify-center">
+      
+        <div className=" flex flex-col justify-center">
           {/* Plantas */}
           <div>
             <h1 className=" text-3xl md:text-4xl lg:text-4xl text-white font-bold">
@@ -150,17 +140,16 @@ const Catalogo = () => {
           </div>
 
           <div>
-            <h1 className="mb-6 mt-6 text-3xl md:text-4xl lg:text-4xl text-white font-bold">
+            <h1 className="mb-6 mt-6  text-3xl md:text-4xl lg:text-4xl text-white font-bold">
               MACETEROS
             </h1>
-            <div className="flex flex-row justify-center flex-wrap"> 
+            <div className="lg:grid lg:grid-cols-2"> 
               <CardMaceteros maceteros={maceteros20} />
               <CardMaceteros maceteros={maceteros30} />
             </div>
           </div>
 
         </div>
-      </div>
 
       {/* zoom Img */}
       {selectedImage && (

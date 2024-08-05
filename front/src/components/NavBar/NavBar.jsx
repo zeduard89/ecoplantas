@@ -2,6 +2,8 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from "../Utils/imges/logo.png";
+import carrito from '../Utils/Logos/pngwing.com.png'
+import ButtonCarrito from '../Carrito/ButtonCarrito';
 
 function NavBar({ onScroll }) {
   const navigate = useNavigate();
@@ -82,6 +84,7 @@ function NavBar({ onScroll }) {
             d="M1 1h15M1 7h15M1 13h15"
           />
         </svg>
+        
       </button>
       <div
         ref={menuRef}
@@ -106,18 +109,6 @@ function NavBar({ onScroll }) {
               }}
             >
               Inicio
-            </button>
-          </li>
-          <li className='hover:bg-gray-500 sm:hover:bg-transparent w-full rounded-md'>
-            <button
-              className='btnNav text-white text-[1rem] sm:text-lg lg:text-xl sm:w-30 w-24 h-8 sm:hover:text-blue-700'
-              onClick={() => {
-                closeMenu(); // Primero, llama a la función closeMenu
-                navigate('/');
-                onScroll('servicios'); // Luego, llama a la función onScroll con el parámetro 'projects'
-              }}
-            >
-              Servicios
             </button>
           </li>
           <li className='hover:bg-gray-500 sm:hover:bg-transparent w-full rounded-md'>
@@ -156,6 +147,8 @@ function NavBar({ onScroll }) {
           </li>
         </ul>
       </div>
+      <ButtonCarrito onScroll={onScroll} closeMenu={closeMenu}/>
+    
     </nav>
   );
 }

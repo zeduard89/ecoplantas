@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { reset } from '../../redux/catalogoSlice';
 import emailjs from 'emailjs-com';
 import validateCatalogo from './validateCatalogo';
@@ -11,7 +12,8 @@ const emailJsUserId = import.meta.env.VITE_EMAILJS_USER_ID;
 
 
 
-const Tablero = () => {
+const Carrito = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { plantas, macetas  } = useSelector((state) => state.catalogo);
   const maceteros20 = useSelector((state)=> state.catalogo.maceteros20);
@@ -86,10 +88,15 @@ const Tablero = () => {
   const filteredMacetas = Object.values(macetas).filter(maceta => maceta.cuantity > 0);
 
   return (
-    <div>
-      <div className="text-left pl-2 ml-6 sm:ml-7 md:ml-8 lg:ml-8 xl:ml-8 bg-white text-black mt-4 rounded-md h-[13rem] w-[80%] overflow-y-auto">
+    <div className='mt-[5rem] h-full'>
+      <h1 className='my-10 text-center text-3xl md:text-4xl lg:text-4xl font-bold'>PEDIDO A COTIZAR</h1>
+      <div className="mx-auto h-[20rem] w-[60%] text-left pl-2 bg-white text-black mt-4 rounded-md overflow-y-auto">
         {(filteredPlantas.length === 0 && filteredMacetas.length === 0 && maceteros20 && maceteros30) ? (
-          <h1 className='flex justify-center items-center	h-full w-full '>Selecciona tu pedido</h1>
+            <button className='flex justify-center items-center	h-full w-full text-lime-500'
+            onClick={() => {
+                navigate('/catalogo');
+                onScroll('inicio')              }}
+                >Selecciona tu pedido</button>
         ) : (
           <>
             {filteredPlantas.map((planta, index) => (
@@ -105,68 +112,58 @@ const Tablero = () => {
         <div className=" border-b">
           {(maceteros20 != '')?(<div><strong className='text-sm'>Macetero 20x20: </strong>{maceteros20}</div>):('')}
         </div>
-        <div className=" border-b">
+        <div >
           {(maceteros30 != '')?(<div><strong className='text-sm'>Macetero 20x30: </strong>{maceteros30}</div>):('')}
         </div>
           </>
         )}
 
       </div>
+
+      <h1 className='my-8 text-center text-3xl md:text-4xl lg:text-4xl font-bold'>Formulario de envio</h1>
       
-      <form ref={form} onSubmit={handleEmailSend}>
-        <div className="mt-4">
-          <div className="relative">
+      <form ref={form}  onSubmit={handleEmailSend}>
+        <div className="m-4 flex flex-col mx-[30%]" >
             <input
               type="text"
               placeholder="Nombre Completo"
               name="user_name"
               value={formValues.user_name}
               onChange={handleChange}
-              className="px-2 py-1 bg-white w-[80%] text-gray-800 text-sm border-b border-gray-300 focus:border-green-600 outline-none rounded-md"
+              className="text-center px-2 py-1 bg-white text-gray-800 text-sm border-b border-gray-300 focus:border-green-600 outline-none rounded-md"
             />
             {errors.user_name && <p className="flex justify-center text-red-600 text-sm">{errors.user_name}</p>}
-          </div>
-
-          <div className="relative">
             <input
               type="text"
               placeholder="Dirección"
               name="user_direccion"
               value={formValues.user_direccion}
               onChange={handleChange}
-              className="px-2 py-1 bg-white w-[80%] text-gray-800 text-sm border-b border-gray-300 focus:border-green-600 outline-none rounded-md"
+              className="text-center px-2 py-1 bg-white text-gray-800 text-sm border-b border-gray-300 focus:border-green-600 outline-none rounded-md"
             />
             {errors.user_direccion && <p className="flex justify-center text-red-600 text-sm">{errors.user_direccion}</p>}
-          </div>
-
-          <div className="relative">
             <input
-              type="number"
+              type="phone"
               placeholder="Teléfono"
               name="user_telefono"
               value={formValues.user_telefono}
               onChange={handleChange}
-              className="px-2 py-1 bg-white w-[80%] text-gray-800 text-sm border-b border-gray-300 focus:border-green-600 outline-none rounded-md"
+              className="text-center px-2 py-1 bg-white text-gray-800 text-sm border-b border-gray-300 focus:border-green-600 outline-none rounded-md"
             />
             {errors.user_telefono && <p className="flex justify-center text-red-600 text-sm">{errors.user_telefono}</p>}
-          </div>
-
-          <div className="relative">
             <input
               type="email"
               placeholder="Email"
               name="user_email"
               value={formValues.user_email}
               onChange={handleChange}
-              className="px-2 py-1 bg-white w-[80%] text-gray-800 text-sm border-b border-gray-300 focus:border-green-600 outline-none rounded-md"
+              className="text-center px-2 py-1 bg-white text-gray-800 text-sm border-b border-gray-300 focus:border-green-600 outline-none rounded-md"
             />
             {errors.user_email && <p className="flex justify-center text-red-600 text-sm">{errors.user_email}</p>}
-          </div>
+            <button type="submit" className="mt-5 text-sm rounded-md px-6 py-1 bg-green-700 hover:bg-green-600 text-white">
+            A Cotizar
+            </button>
         </div>
-
-        <button type="submit" className="mt-6 text-sm w-[80%] rounded-md px-6 py-1 bg-green-700 hover:bg-green-600 text-white">
-          A Cotizar
-        </button>
       </form>
 
       {sent === true && <p className="mt-4 text-green-600">¡Mensaje enviado con éxito!</p>}
@@ -175,5 +172,6 @@ const Tablero = () => {
   );
 };
 
-export default Tablero;
+export default Carrito;
+
 

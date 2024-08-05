@@ -3,6 +3,7 @@ import Home from './components/Home/Home'
 import NotFound from './components/Error 404/NotFound'
 import Historia from './components/Historia/Historia'
 import Catalogo from './components/Catalogo/Catalogo'
+import Carrito from './components/Carrito/Carrito';
 import Contacto from './components/Contacto/Contacto'
 import Footer from './components/Footer/Footer';
 
@@ -35,6 +36,7 @@ function App() {
             <Route path="/" element={<Home/>} />
             <Route path="/historia" element={<Historia/>} />
             <Route path="/catalogo" element={<Catalogo/>} />
+            <Route path="/carrito" element={<Carrito/>} />
             <Route path="/contacto" element={<Contacto/>} />
             <Route path="*" element={<NotFound />} />  {/* Ruta de captura para 404 */}
           </Routes>

@@ -31,12 +31,12 @@ const CardMaceteros = ({maceteros }) => {
 
     return (
 
-    <div className='relative text-center rounded-md p-7 h-full w-full'>
+    <div className='relative text-center rounded-md p-7 '>
         
         <div className='absolute z-50 top-10 right-10 font-bold bg-green-700/80 border-2 border-gray-500 w-7 h-7 rounded flex items-center justify-center'>
             {title.includes('20')?maceteros20Count:maceteros30Count}
         </div>
-        <div className='h-[20rem] rounded-t-md object-cover	 '>
+        <div className='h-[20rem] rounded-t-md object-cover'>
           <Carrousel image={imgArray} />
         </div>
         
