@@ -5,71 +5,48 @@ import CardMaceteros from '../Card/CardMaceteros';
 import { useSelector } from 'react-redux';
 import medCuad from '../Utils/imges/macetas/medidasCuadradas.jpg';
 import medRec from '../Utils/imges/macetas/medidasRectangulares.jpg';
-import Tablero from './Tablero';
 
 //Update catalogo
 import { useDispatch } from "react-redux";
 import obtenerDatosPosts from '../../redux/wordPressApi'
-import { addCatalogo } from '../../redux/catalogoSlice';
+import { addCatalogo, reset } from '../../redux/catalogoSlice';
 
 const Catalogo = () => {
   //get catalogo from  wordpress y update redux
   const dispatch = useDispatch();
   const catalogo = useSelector((state) => state.catalogo);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
-  // const fetchPosts = useCallback(async () => {
-  //   try {
-  //     const datosPosts = await obtenerDatosPosts();
-  //     dispatch(addCatalogo(datosPosts));
-  //   } catch (err) {
-  //     console.log("Error", err);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // }, [dispatch]);
 
-  // useEffect(() => {
-
-  //   fetchPosts();
-  
-  // }, [fetchPosts]);
-//----------------------Modificar al terminar--------------------------------
+//----------------------Carga de imagenes--------------------------------
   const fetchPosts = useCallback(async () => {
     try {
       const datosPosts = await obtenerDatosPosts();
       dispatch(addCatalogo(datosPosts));
     } catch (err) {
       console.log("Error", err);
-    } finally {
-      setIsLoading(false);
     }
   }, [dispatch]);
 
   useEffect(() => {
-    if (
-      (catalogo.macetas && catalogo.macetas.length === 0) &&
-      (catalogo.plantas && catalogo.plantas.length === 0) &&
-      (catalogo.maceteros && catalogo.maceteros.length === 0)
-      (catalogo.maceteros20 === 0) &&
-       catalogo.maceteros30 === 0
-    ) {
+    if (catalogo.plantas.length ==[] && 
+        catalogo.macetas.length ==[] && 
+        catalogo.maceteros.length ==[]
+        ) {
       fetchPosts();
-    } else {
-      setIsLoading(false);
     }
-  }, [catalogo, fetchPosts]);
+  }, [fetchPosts, catalogo]);
+  //----------------------------------------------------------
 
-  if (isLoading) {
-    return (
-      <div className="loading-container">
-        <p className="h-[60rem] pt-[10rem] text-4xl loading-text flex justify-center">Cargando...</p>
-        {/* Puedes agregar más elementos visuales aquí, como un spinner */}
-      </div>
-    );
-  }
-  //--------------------Carga de imagenes--------------------------------------
+  const fetchPostsRefresh = useCallback(async () => {
+    try {
+      const datosPosts = await obtenerDatosPosts();
+      dispatch(reset())
+      dispatch(addCatalogo(datosPosts));
+    } catch (err) {
+      console.log("Error", err);
+    }
+  }, [dispatch]);
 
 
 
@@ -94,6 +71,10 @@ const Catalogo = () => {
   return (
     <div className="my-[6rem] text-center">
       <h1 className="text-5xl font-bold text-center mb-16">CATALOGO</h1>
+      <div className='flex flex-row-reverse mr-2 lg:mr-20'>
+        <button className='hover:bg-green-200 bg-green-500 text-black font-bold p-[0.15rem] border-2 rounded-md border-slate-600'
+        onClick={()=>fetchPostsRefresh()}> Reset</button>
+      </div>
       
         <div className=" flex flex-col justify-center">
           {/* Plantas */}

@@ -36,7 +36,7 @@ function App() {
             <Route path="/" element={<Home/>} />
             <Route path="/historia" element={<Historia/>} />
             <Route path="/catalogo" element={<Catalogo/>} />
-            <Route path="/carrito" element={<Carrito/>} />
+            <Route path="/carrito" element={<Carrito onScroll={handleScroll}/>} />
             <Route path="/contacto" element={<Contacto/>} />
             <Route path="*" element={<NotFound />} />  {/* Ruta de captura para 404 */}
           </Routes>

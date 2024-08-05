@@ -31,20 +31,15 @@ const Home = () => {
     }
   }, [dispatch]);
 
-// Editar al finalizar------------------------------
-  // useEffect(() => {
-  //   if (catalogo.plantas.length === '' && 
-  //       catalogo.macetas.length === '' && 
-  //       catalogo.maceteros.length === ''
-  //       ) {
-  //     fetchPosts();
-  //   }
-  // }, [fetchPosts, catalogo]);
-//-----------------------------------------------
-useEffect(() => {
-    fetchPosts();
-  
-}, [fetchPosts]);
+  useEffect(() => {
+    if (catalogo.plantas.length == []&& 
+        catalogo.macetas.length == [] && 
+        catalogo.maceteros.length == []
+        ) {
+      fetchPosts();
+    }
+  }, [fetchPosts, catalogo]);
+
 
 
   return (
