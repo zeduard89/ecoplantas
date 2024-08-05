@@ -86,7 +86,6 @@ const Carrito = ({onScroll}) => {
   //Filtrado de plantas, macetas y varios, antes de usar en JSX
   const filteredPlantas = Object.values(plantas).filter(planta => planta.cuantity > 0);
   const filteredMacetas = Object.values(macetas).filter(maceta => maceta.cuantity > 0);
-  console.log(filteredMacetas,filteredPlantas,maceteros20,maceteros30)
 
   return (
     <div className='mt-[5rem] h-full'>
