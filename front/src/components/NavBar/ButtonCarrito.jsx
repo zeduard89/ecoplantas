@@ -4,7 +4,7 @@ import carrito from '../Utils/Logos/pngwing.com.png'
 import { useSelector } from 'react-redux';
 
 
-const ButtonCarrito = ({onScroll ,closeMenu}) => {
+const ButtonCarrito = ({onScroll }) => {
     const navigate = useNavigate();
 
     const { plantas, macetas  } = useSelector((state) => state.catalogo);
@@ -26,9 +26,8 @@ const ButtonCarrito = ({onScroll ,closeMenu}) => {
 
   return (
     <button
-    className='relative btnNav text-white text-[1rem] sm:text-lg lg:text-xl sm:w-30 w-24 h-8 sm:hover:text-blue-700'
+    className='h-8 relative btnNav text-white text-[1rem] sm:text-lg lg:text-xl  sm:hover:text-blue-700'
     onClick={() => {
-      closeMenu(); // Primero, llama a la función closeMenu
       navigate('/Carrito');
       onScroll('servicios'); // Luego, llama a la función onScroll con el parámetro 'projects'
     }}

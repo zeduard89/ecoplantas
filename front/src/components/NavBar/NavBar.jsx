@@ -2,8 +2,8 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from "../Utils/imges/logo.png";
-import carrito from '../Utils/Logos/pngwing.com.png'
-import ButtonCarrito from '../Carrito/ButtonCarrito';
+import ButtonCarrito from './ButtonCarrito';
+import ButtonAdmin from './AdminButton'
 
 function NavBar({ onScroll }) {
   const navigate = useNavigate();
@@ -58,12 +58,13 @@ function NavBar({ onScroll }) {
   }, [isMenuOpen]);
 
   return (
-    <nav id="inicio" className='animate-slideDown bg-navBarColor/[.5] w-full fixed flex flex-row justify-between h-[3.3rem] '>
+
+    <nav id="inicio" className='animate-slideDown bg-navBarColor/[.5] w-full fixed   h-[3.3rem] flex flex-row justify-between '>
       <button
         ref={buttonRef}
         data-collapse-toggle="navbar-hamburger"
         type="button"
-        className="sm:hidden inline-flex items-center justify-center p-2 w-10 h-9 ml-3 mt-2 mb-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        className="sm:hidden inline-flex items-center justify-center p-2 w-10 h-10 ml-3 mt-2 mb-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 "
         aria-controls="navbar-hamburger"
         aria-expanded={isMenuOpen}
         onClick={handleMenuToggle}
@@ -125,17 +126,6 @@ function NavBar({ onScroll }) {
           </li>
           <li className='hover:bg-gray-500 sm:hover:bg-transparent w-full rounded-md'>
             <button
-              className='btnNav text-white text-[1rem] sm:text-lg lg:text-xl sm:w-30 w-24 h-8 sm:hover:text-blue-700'
-              onClick={() => {
-                closeMenu(); // Primero, llama a la función closeMenu
-                navigate('/catalogo');
-                onScroll('inicio')              }}
-            >
-              Catálogo
-            </button>
-          </li>
-          <li className='hover:bg-gray-500 sm:hover:bg-transparent w-full rounded-md'>
-            <button
               className='btnNav text-white text-[1rem] sm:text-lg lg:text-xl sm:w-30 w-24 h-8 sm:hover:text-blue-700 mr-1'
               onClick={() => {
                 closeMenu(); // Primero, llama a la función closeMenu
@@ -145,10 +135,26 @@ function NavBar({ onScroll }) {
               Contacto
             </button>
           </li>
+          <li className='hover:bg-gray-500 sm:hover:bg-transparent w-full rounded-md'>
+            <button
+              className='btnNav text-white text-[1rem] sm:text-lg lg:text-xl sm:w-30 w-24 h-8 sm:hover:text-blue-700'
+              onClick={() => {
+                closeMenu(); // Primero, llama a la función closeMenu
+                navigate('/catalogo');
+                onScroll('inicio')              }}
+            >
+              Catálogo
+            </button>
+          </li>
         </ul>
       </div>
-      <ButtonCarrito onScroll={onScroll} closeMenu={closeMenu}/>
-    
+
+      {isMenuOpen?"":
+      <div className='flex flex-row'>
+        <ButtonCarrito onScroll={onScroll} />
+        <ButtonAdmin onScroll={onScroll} />
+      </div>}
+
     </nav>
   );
 }

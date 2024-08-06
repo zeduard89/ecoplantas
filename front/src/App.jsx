@@ -6,6 +6,7 @@ import Catalogo from './components/Catalogo/Catalogo'
 import Carrito from './components/Carrito/Carrito';
 import Contacto from './components/Contacto/Contacto'
 import Footer from './components/Footer/Footer';
+import Admin from './components/Admin/Admin'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 //Tailwind
@@ -37,6 +38,7 @@ function App() {
             <Route path="/historia" element={<Historia/>} />
             <Route path="/catalogo" element={<Catalogo/>} />
             <Route path="/carrito" element={<Carrito onScroll={handleScroll}/>} />
+            <Route path="/admin" element={<Admin/>} />
             <Route path="/contacto" element={<Contacto/>} />
             <Route path="*" element={<NotFound />} />  {/* Ruta de captura para 404 */}
           </Routes>
