@@ -17,15 +17,15 @@ const fetchAdmin = async ({ formValues }) => {
 
     if (response.ok) {
       const result = await response.json();
-      console.log('Login successful:', result);
+      //console.log('Login successful:', result);
       return { success: true, data: result }; // Devuelve el resultado en caso de éxito
     } else {
       const errorData = await response.json();
-      console.log('Login failed:', errorData);
+      //console.log('Login failed:', errorData);
       return { success: false, ...errorData }; // Devuelve un objeto de error
     }
   } catch (error) {
-    console.error('Error occurred during login:', error);
+    //console.error('Error occurred during login:', error);
     return { success: false, error: 'Network error' }; // Devuelve un objeto de error de red
   }
 };

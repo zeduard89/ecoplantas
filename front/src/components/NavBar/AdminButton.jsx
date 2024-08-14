@@ -1,7 +1,7 @@
 import React, { useRef,useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import admin from '../Utils/Logos/admin.png';
-import validateFormAdmin from '../Admin/validateFormAdmin';
+import validateFormAdmin from './validateFormAdmin';
 import fetchAdmin from '../api/fetchAdmin'
 import { useSelector } from 'react-redux';
 

@@ -29,12 +29,7 @@ const Catalogo = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (catalogo.plantas.length === 0 && 
-        catalogo.macetas.length === 0 && 
-        catalogo.maceteros.length === 0
-        ) {
-      fetchPosts();
-    }
+      fetchPosts();  
   }, [fetchPosts, catalogo]);
   //----------------------------------------------------------
 

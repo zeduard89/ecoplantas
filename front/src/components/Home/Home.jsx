@@ -32,7 +32,8 @@ const Home = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (catalogo.plantas.length === 0 && 
+    if (catalogo == undefined ||
+        catalogo.plantas.length === 0 && 
         catalogo.macetas.length === 0 && 
         catalogo.maceteros.length === 0
         ) {
