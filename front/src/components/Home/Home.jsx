@@ -32,11 +32,11 @@ const Home = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (catalogo == undefined ||
-        catalogo.plantas.length === 0 && 
-        catalogo.macetas.length === 0 && 
-        catalogo.maceteros.length === 0
-        ) {
+    if (!catalogo || (
+        catalogo.plantas?.length === 0 && 
+        catalogo.macetas?.length === 0 && 
+        catalogo.maceteros?.length === 0
+      )) {
       fetchPosts();
     }
   }, [fetchPosts, catalogo]);
