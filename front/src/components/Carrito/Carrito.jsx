@@ -47,10 +47,9 @@ const Carrito = ({onScroll}) => {
     const maceteros20Text = maceteros20 > 0 ? `Maceteros 20 x 20 x 1 Mts: ${maceteros20}` : '';
     const maceteros30Text = maceteros30 > 0 ? `Maceteros 20 x 30 x 1 Mts: ${maceteros30}` : '';
 
-
     const message = [
-      ...filteredPlantas,
-      ...filteredMacetas,
+      ...filteredPlantas.map(planta => `${planta.title}: ${planta.cuantity}`),
+      ...filteredMacetas.map(maceta => `${maceta.title}: ${maceta.cuantity}`),
       maceteros20Text,
       maceteros30Text
     ].filter(Boolean).join('\n');
@@ -88,8 +87,8 @@ const Carrito = ({onScroll}) => {
   const filteredMacetas = Object.values(macetas).filter(maceta => maceta.cuantity > 0);
 
   return (
-    <div className='my-[8rem] xl:h-full'>
-      <h1 className='my-10 text-center text-3xl md:text-4xl lg:text-4xl font-bold'>PEDIDO A COTIZAR</h1>
+    <div className='my-[8rem] xl:h-full flex flex-col justify-center text-center'>
+      <h1 className='my-5 text-center text-3xl md:text-4xl lg:text-4xl font-bold'>PEDIDO A COTIZAR</h1>
       <div className="mx-auto h-[20rem] w-[60%] text-left pl-2 bg-white text-black mt-4 rounded-md overflow-y-auto">
         {(filteredPlantas.length == 0 && filteredMacetas.length == 0 && maceteros20 == 0 && maceteros30 == 0) ? (
             <button className='flex justify-center items-center	h-full w-full text-lime-500'

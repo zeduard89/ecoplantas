@@ -82,6 +82,7 @@ const Catalogo = () => {
             <h1 className=" text-3xl md:text-4xl lg:text-4xl text-white font-bold">
               PLANTAS
             </h1>
+            {catalogo.plantas.length === 0 && <div>No hay Plantas disponibles</div>}
             <div className="flex flex-row justify-center flex-wrap">
               {catalogo.plantas.map((planta, index) => (
                 <div key={index}>
@@ -97,6 +98,7 @@ const Catalogo = () => {
               MACETAS
             </h1>
             <div className="flex flex-row justify-center flex-wrap">
+            {catalogo.macetas.length === 0 && <div>No hay Macetas disponibles</div>}
               {catalogo.macetas.map((maceta, index) => (
                 <div key={index}>
                   <CardMacetas {...maceta} />
@@ -124,10 +126,13 @@ const Catalogo = () => {
             <h1 className="mb-6 mt-6  text-3xl md:text-4xl lg:text-4xl text-white font-bold">
               MACETEROS
             </h1>
-            <div className="lg:grid lg:grid-cols-2"> 
-              <CardMaceteros maceteros={maceteros20} />
-              <CardMaceteros maceteros={maceteros30} />
-            </div>
+            {catalogo.maceteros.length === 0? <div>No hay Maceteros disponibles</div>
+            :(
+              <div className="lg:grid lg:grid-cols-2"> 
+                <CardMaceteros maceteros={maceteros20} />
+                <CardMaceteros maceteros={maceteros30} />
+              </div>
+            )}
           </div>
 
         </div>

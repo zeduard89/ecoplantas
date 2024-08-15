@@ -7,9 +7,9 @@ import { useSelector } from 'react-redux';
 const ButtonCarrito = ({onScroll }) => {
     const navigate = useNavigate();
 
-    const { plantas, macetas  } = useSelector((state) => state.catalogo);
-    const maceteros20 = useSelector((state)=> state.catalogo.maceteros20);
-    const maceteros30 = useSelector((state)=>state.catalogo.maceteros30);
+    const { plantas = {}, macetas = {} } = useSelector((state) => state.catalogo);
+    const maceteros20 = useSelector((state)=> state.catalogo.maceteros20) || 0;
+    const maceteros30 = useSelector((state)=>state.catalogo.maceteros30) || 0;
 
     let plantsCount = Object.values(plantas).reduce((total, planta) => {
       const quantity = planta.cuantity || 0;
@@ -26,7 +26,7 @@ const ButtonCarrito = ({onScroll }) => {
 
   return (
     <button
-    className='h-8 relative btnNav text-white text-[1rem] sm:text-lg lg:text-xl  sm:hover:text-blue-700'
+    className='h-8 mr-3 relative btnNav text-white text-[1rem] sm:text-lg lg:text-xl  sm:hover:text-blue-700'
     onClick={() => {
       navigate('/Carrito');
       onScroll('servicios'); // Luego, llama a la función onScroll con el parámetro 'projects'
@@ -38,4 +38,4 @@ const ButtonCarrito = ({onScroll }) => {
   )
 }
 
-export default ButtonCarrito
+export default ButtonCarrito;
