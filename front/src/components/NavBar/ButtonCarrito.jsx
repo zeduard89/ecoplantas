@@ -11,15 +11,15 @@ const ButtonCarrito = ({onScroll }) => {
     const maceteros20 = useSelector((state)=> state.catalogo.maceteros20) || 0;
     const maceteros30 = useSelector((state)=>state.catalogo.maceteros30) || 0;
 
-    let plantsCount = Object.values(plantas).reduce((total, planta) => {
+    let plantsCount = plantas? Object.values(plantas).reduce((total, planta) => {
       const quantity = planta.cuantity || 0;
       return total + quantity;
-    }, 0);
+    }, 0) : 0 ;
 
-    let macetasCount = Object.values(macetas).reduce((total, macetas) => {
+    let macetasCount = macetas? Object.values(macetas).reduce((total, macetas) => {
       const quantity = macetas.cuantity || 0;
       return total + quantity;
-    }, 0);
+    }, 0) : 0;
     
     const totalItems = plantsCount + macetasCount + maceteros20 + maceteros30;
 
