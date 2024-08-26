@@ -109,10 +109,10 @@ const Carrito = ({onScroll}) => {
               </div>
             ))}
         <div className=" border-b">
-          {(maceteros20 != '')?(<div><strong className='text-sm'>Macetero 20x20: </strong>{maceteros20}</div>):('')}
+          {(maceteros20 != 0)?(<div><strong className='text-sm'>Macetero 20x20: </strong>{maceteros20}</div>):('')}
         </div>
         <div >
-          {(maceteros30 != '')?(<div><strong className='text-sm'>Macetero 20x30: </strong>{maceteros30}</div>):('')}
+          {(maceteros30 != 0)?(<div><strong className='text-sm'>Macetero 20x30: </strong>{maceteros30}</div>):('')}
         </div>
           </>
         )}
