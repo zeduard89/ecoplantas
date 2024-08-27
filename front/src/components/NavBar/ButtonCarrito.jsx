@@ -7,9 +7,7 @@ import { useSelector } from 'react-redux';
 const ButtonCarrito = ({onScroll }) => {
     const navigate = useNavigate();
 
-    const { plantas = {}, macetas = {} } = useSelector((state) => state.catalogo || {});
-    const maceteros20 = useSelector((state)=> state.catalogo.maceteros20) || 0;
-    const maceteros30 = useSelector((state)=>state.catalogo.maceteros30) || 0;
+    const { plantas = {}, macetas = {}, maceteros20 = 0, maceteros30 = 0 } = useSelector((state) => state.catalogo || {});
 
     let plantsCount = plantas? Object.values(plantas).reduce((total, planta) => {
       const quantity = planta.cuantity || 0;
