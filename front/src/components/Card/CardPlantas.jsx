@@ -1,21 +1,25 @@
-import React  from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { increment, decrement, reset } from '../../redux/catalogoSlice';
+import { increment, decrement } from '../../redux/catalogoSlice';
 
 const CardPlantas = ({ id, title, content, imgUrl, category }) => {
   const dispatch = useDispatch();
 
-  //const formattedTitle = title.toLowerCase().trim().replace(/\.$/, '').replace(/ /g, "");
-  //(A)Busco el elemento del estado por categoria->(B) Busco por titulo
+  // Busco el elemento del estado por categoria y por titulo
   let element = useSelector((state) => state.catalogo[category]);
-  element = element?.find(item => item.title === title)
-  
+  element = element?.find(item => item.title === title);
+
   const handleIncrement = () => {
-    dispatch(increment({ title, category}));
+    dispatch(increment({ title, category }));
   };
 
   const handleDecrement = () => {
     dispatch(decrement({ title, category }));
+  };
+
+  // Función para limitar el texto a un número específico de caracteres
+  const truncateText = (text, limit) => {
+    return text.length > limit ? text.slice(0, limit) + '...' : text;
   };
 
   if (!imgUrl) {
@@ -30,30 +34,29 @@ const CardPlantas = ({ id, title, content, imgUrl, category }) => {
       </div>
       <img src={imgUrl} alt='Imagen de la tarjeta' className='rounded-t-md w-full h-[15rem] object-cover' />
       <button 
-        className='absolute bottom-[6.7rem] left-9 w-6 h-6 rounded text-4xl  text-white'
+        className='absolute bottom-[6.7rem] left-9 w-6 h-6 rounded text-4xl text-white'
         onClick={handleIncrement}
         aria-label='Increment'
       >
         +
       </button>
       <button 
-        className='absolute bottom-[6.9rem] right-9 w-6 h-6 rounded text-4xl  text-white'
+        className='absolute bottom-[6.9rem] right-9 w-6 h-6 rounded text-4xl text-white'
         onClick={handleDecrement}
         aria-label='Decrement'
       >
         -
       </button>
-      <h1 className='h-[2.5rem] text-white rounded-b-md flex items-center justify-center bg-green-700 text-sm md:text-lg lg:text-lg xl:text-lg  font-bold'>
+      <h1 className='h-[2.5rem] text-white flex items-center justify-center bg-green-700 text-sm md:text-lg lg:text-lg xl:text-lg font-bold'>
         {title}
       </h1>
-      {/* <h4 className='h-[30%] bg-green-700/20 p-2 rounded-b-md text-[0.79rem] md:text-sm lg:text-sm overflow-hidden text-ellipsis'>
-        {content}
-      </h4> */}
+      <h4 className='h-[30%] bg-green-700/20 p-2 rounded-b-md text-[0.79rem] md:text-sm lg:text-sm'>
+        {truncateText(content, 120)}
+      </h4>
     </div>
   );
 };
 
 export default CardPlantas;
-
 
 
