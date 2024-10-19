@@ -91,11 +91,11 @@ const Carrito = ({onScroll}) => {
       <h1 className='my-5 text-center text-3xl md:text-4xl lg:text-4xl font-bold'>PEDIDO A COTIZAR</h1>
       <div className="mx-auto h-[20rem] w-[60%] text-left pl-2 bg-white text-black mt-4 rounded-md overflow-y-auto">
         {(filteredPlantas.length == 0 && filteredMacetas.length == 0 && maceteros20 == 0 && maceteros30 == 0) ? (
-            <button className='flex justify-center items-center	h-full w-full text-lime-500'
+            <button className='flex justify-center items-center	h-full w-full text-xl text-lime-500'
             onClick={() => {
                 navigate('/catalogo');
                 onScroll('inicio')              }}
-                >Selecciona tu pedido</button>
+                >Haga su Pedido</button>
         ) : (
           <>
             {filteredPlantas.map((planta, index) => (

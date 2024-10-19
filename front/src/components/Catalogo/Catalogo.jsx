@@ -71,6 +71,13 @@ const Catalogo = () => {
   return (
     <div className="my-[6rem] text-center">
       <h1 className="text-5xl font-bold text-center mb-16">CATALOGO</h1>
+      <p className='font-bold mx-[5rem] md:mx-[10rem] lg:mx-[15rem]'>
+        Seleccione la cantidad que desea ,de nuestra variedad de plantas macetas y maceteros,
+        con los botones (+) y (-). Podra observar la cantidad de elementos seleccionados 
+         en la parte superior derecha de la pagina dentro del carrito.
+        Para finalizar su compra haga click en el carrito y vera el resumen de su seleccion, 
+        complete sus datos y envie el formulario dando click en "A cotizar"
+        </p>
       <div className='flex flex-row-reverse mr-2 lg:mr-20'>
         <button className='hover:bg-green-200 bg-green-500 text-black font-bold p-[0.15rem] border-2 rounded-md border-slate-600'
         onClick={()=>fetchPostsRefresh()}> Reset</button>
@@ -79,7 +86,7 @@ const Catalogo = () => {
         <div className=" flex flex-col justify-center">
           {/* Plantas */}
           <div>
-            <h1 className=" text-3xl md:text-4xl lg:text-4xl text-white font-bold">
+            <h1 className=" text-3xl md:text-4xl lg:text-4xl text-gray-700 font-bold">
               PLANTAS
             </h1>
             {catalogo.plantas.length === 0 && <div>No hay Plantas disponibles</div>}
@@ -94,7 +101,7 @@ const Catalogo = () => {
 
           {/* Macetas */}
           <div>
-            <h1 className="mb-6 mt-6 text-3xl md:text-4xl lg:text-4xl text-white font-bold">
+            <h1 className="mb-6 mt-6 text-3xl md:text-4xl lg:text-4xl text-gray-700 font-bold">
               MACETAS
             </h1>
             <div className="flex flex-row justify-center flex-wrap">
@@ -123,7 +130,7 @@ const Catalogo = () => {
           </div>
 
           <div>
-            <h1 className="mb-6 mt-6  text-3xl md:text-4xl lg:text-4xl text-white font-bold">
+            <h1 className="mb-6 mt-6  text-3xl md:text-4xl lg:text-4xl text-gray-700 font-bold">
               MACETEROS
             </h1>
             {catalogo.maceteros.length === 0? <div>No hay Maceteros disponibles</div>
